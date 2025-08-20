@@ -50,3 +50,11 @@ In addition, allowing users to follow/ unfollow users, commenting on posts and l
 4. Basic UI must be in place at the very least.
 5. You must create a README.md with details how to run your project.
 
+## How to run the project 
+
+Build command:
+```
+npm run build 
+```
+
+
