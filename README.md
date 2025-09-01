@@ -18,7 +18,7 @@ Here is a screenshot of the live website:
 
 Add image here!
 
-## 📋 What this assigmnet is about
+## 📋 What this assignment is about
 
 I was given the task to create a socail media application. We were required allow the users to perfom CRUD operatiosns, meaning Create, Read, Update and Delete on their posts.
 In addition, allowing users to follow/ unfollow users, commenting on posts and lastly reacting with an emoji.
