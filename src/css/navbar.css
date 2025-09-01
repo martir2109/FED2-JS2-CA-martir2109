@@ -1,0 +1,157 @@
+.topnav {
+  overflow: hidden;
+  background-color: var(--white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+  border-bottom: 1px solid rgb(108, 108, 108, 0.25);
+  align-items: center;
+  display: flex;
+  height: 80px;
+}
+
+.topnav a {
+  float: none;
+  display: block;
+  color: var(--black);
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-right: 20px;
+}
+
+.topnav .icon {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+
+.nav-logo {
+  flex-shrink: 0;
+  padding: 10px 2px;
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+  transform: translateY(-40px);
+}
+
+.nav-logo img {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  margin-left: auto;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bi-house-door,
+.bi-person,
+.bi-gear,
+.bi-box-arrow-right {
+  color: var(--black);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--black);
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.nav-text {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .nav-links {
+    display: none;
+  }
+
+  .topnav .icon {
+    display: block;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+
+  .topnav a.icon {
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: fixed;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .topnav.responsive .nav-logo {
+    transform: translateY(-12px);
+  }
+
+  .topnav.responsive .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
+    background-color: var(--primary-color);
+    align-items: stretch;
+  }
+
+  .topnav.responsive .nav-links a {
+    display: flex;
+    gap: 10px;
+    float: none;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bi-house-door,
+  .bi-person,
+  .bi-gear,
+  .bi-box-arrow-right {
+    color: var(--secondary-color);
+  }
+
+  .nav-text {
+    display: block;
+    color: var(--secondary-color);
+  }
+  .topnav.responsive .nav-links a:hover {
+    background-color: var(--white);
+    transition: background-color 0.3s ease;
+  }
+
+  .topnav.responsive .nav-links a:hover,
+  .topnav.responsive .nav-links a:hover .nav-text,
+  .topnav.responsive .nav-links a:hover i {
+    color: var(--black);
+  }
+}
