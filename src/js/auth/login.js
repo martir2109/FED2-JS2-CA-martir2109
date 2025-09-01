@@ -1,8 +1,10 @@
 import { showError, clearError, togglePassword } from "../utils.js";
+import { API_BASE_URL } from "../utils.js";
+import { API_ENDPOINTS } from "../utils.js";
 
 export async function login({ email, password }) {
   try {
-    const response = await fetch("https://v2.api.noroff.dev/auth/login", {
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.AUTH.LOGIN}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

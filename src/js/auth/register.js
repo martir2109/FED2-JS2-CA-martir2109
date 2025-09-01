@@ -1,13 +1,6 @@
-/* export async function register({
- name,
-  email,
-  password,
-  bio,
-  banner,
-  avatar,
-} */
-
 import { showError, clearError, togglePassword } from "../utils.js";
+import { API_BASE_URL } from "../utils.js";
+import { API_ENDPOINTS } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form");
@@ -57,16 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hasError) return;
 
     try {
-      const response = await fetch("https://v2.api.noroff.dev/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          venueManager: false,
-        }),
-      });
+      const response = await fetch(
+        `${API_BASE_URL}${API_ENDPOINTS.AUTH.REGISTER}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            venueManager: false,
+          }),
+        }
+      );
 
       const data = await response.json();
 
