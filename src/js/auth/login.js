@@ -70,6 +70,26 @@ document
     try {
       const { token, user } = await login({ email, password });
       alert("Login successful!");
+
+      const apiKeyResponse = await fetch(
+        `${API_BASE_URL}${API_ENDPOINTS.AUTH.CREATE_API_KEY}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (apiKeyResponse.ok) {
+        const apiKeyData = await apiKeyResponse.json();
+        localStorage.setItem("apiKey", apiKeyData.data.key);
+      } else {
+        const errorData = await apiKeyResponse.json();
+        console.error("Failed to create API key:", errorData);
+      }
+
       setTimeout(() => {
         window.location.href = "/index.html";
       }, 1000);
