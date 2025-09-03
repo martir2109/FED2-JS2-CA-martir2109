@@ -5,7 +5,7 @@ function createNavbar() {
     // Navbar for logged-in users
     return `
         <nav class="topnav">
-        <a href="/index.html">
+        <a href="./index.html">
           <div class="nav-logo">
             <img src="/public/logo/Posty logo - dark backgroung.png" alt="Posty logo">
           </div>
@@ -20,13 +20,13 @@ function createNavbar() {
           </a>
           
           <div class="nav-links">  
-            <a href="/index.html"><i class="bi bi-house-door" title="Home"></i>
+            <a href="./index.html"><i class="bi bi-house-door" title="Home"></i>
             <span class="nav-text">Home</span>
             </a>
-            <a href="/profile/index.html"><i class="bi bi-person" title="Profile"></i>
+            <a href="./profile/index.html"><i class="bi bi-person" title="Profile"></i>
             <span class="nav-text">Profile</span>
             </a>
-            <a href="/settings/index.html"><i class="bi bi-gear" title="Settings"></i>
+            <a href="./settings/index.html"><i class="bi bi-gear" title="Settings"></i>
             <span class="nav-text">Settings</span>
             </a>
             <a href="javascript:void(0);" onclick="logout()"><i class="bi bi-box-arrow-right" title="Log out"></i>
@@ -39,9 +39,9 @@ function createNavbar() {
     // Navbar for logged-out users
     return `
         <nav class="topnav">
-        <a href="/index.html">
+        <a href="./index.html">
           <div class="nav-logo">
-            <img src="/public/logo/Posty logo - dark backgroung.png" alt="Posty logo">
+            <img src="./public/logo/Posty logo - dark backgroung.png" alt="Posty logo">
           </div>
           </a>
           
@@ -54,10 +54,10 @@ function createNavbar() {
           </a>
           
           <div class="nav-links">  
-            <a href="/index.html"><i class="bi bi-house-door" title="Home"></i>
+            <a href="./index.html"><i class="bi bi-house-door" title="Home"></i>
             <span class="nav-text">Home</span>
             </a>
-            <a href="/auth/login/index.html"><i class="bi bi-person" title="Profile"></i> 
+            <a href="./auth/login/index.html"><i class="bi bi-person" title="Profile"></i> 
             <span class="nav-text">Log in or Register</span>
             </a>
           </div>
