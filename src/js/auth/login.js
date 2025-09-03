@@ -6,14 +6,18 @@ export async function login({ email, password }) {
   try {
     const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.AUTH.LOGIN}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ email, password }),
     });
 
     const data = await response.json();
 
-    if (data.errors) {
-      throw new Error(data.errors[0].message);
+    if (!response.ok) {
+      const errorMessage =
+        data.errors?.[0]?.message || `HTTP ${response.status}`;
+      throw new Error(errorMessage);
     }
 
     const token = data.accessToken || data.data?.accessToken;
@@ -25,7 +29,7 @@ export async function login({ email, password }) {
     const userData = user.data || user;
     localStorage.setItem(
       "userName",
-      userData.name || user.data.username || userData.email || "User"
+      userData.name || user.data.username || userData.email || "user"
     );
 
     return { token, user };

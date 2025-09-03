@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form) return;
 
-  // Handle form submit
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let hasError = false;
 
-    // Name validation
     if (!name) {
       showError("name", "Name cannot be empty.");
       hasError = true;
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clearError("name");
     }
 
-    // Email validation
     if (!email) {
       showError("email", "Email cannot be empty.");
       hasError = true;
@@ -36,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clearError("email");
     }
 
-    // Password validation
     if (!password) {
       showError("password", "Password cannot be empty.");
       hasError = true;
@@ -54,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         `${API_BASE_URL}${API_ENDPOINTS.AUTH.REGISTER}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             name,
             email,
@@ -66,14 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await response.json();
 
-      if (data.errors) {
-        alert("Error: " + data.errors[0].message);
+      if (!response.ok) {
+        const errorMessage =
+          data.errors?.[0]?.message || `HTTP ${response.status}`;
+        alert("Error: " + errorMessage);
         return;
       }
 
       alert("User registered successfully!");
 
-      // Redirect to login page after 1s
       setTimeout(() => {
         window.location.href = "/auth/login/index.html";
       }, 1000);
