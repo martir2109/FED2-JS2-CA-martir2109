@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Posty | Edit</title>
+    <title>Posty | Edit post</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/public/images/favicon.png" />
+    <link rel="icon" type="image/png" href="../../public/images/favicon.png" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/src/css/style.css" />
-    <link rel="stylesheet" href="/src/css/navbar.css" />
-    <link rel="stylesheet" href="/src/css/profile.css" />
+    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link rel="stylesheet" href="../../src/css/navbar.css" />
+    <link rel="stylesheet" href="../../src/css/footer.css" />
+    <link rel="stylesheet" href="../../src/css/create-edit.css" />
 
     <!-- Bootstrap icon libary -->
     <link
@@ -20,13 +21,59 @@
     />
 
     <!-- Script -->
-    <script type="module" src="/src/js/utils.js"></script>
-    <script type="module" src="/src/js/navbar.js"></script>
+    <script type="module" src="../../src/js/utils.js"></script>
+    <script type="module" src="../../src/js/navbar.js"></script>
+    <script type="module" src="../../src/js/footer.js"></script>
+    <script type="module" src="../../src/js/edit.js"></script>
   </head>
   <body>
-    <header>
-      <div id="navbar-container"></div>
-    </header>
-    <h1>Edit post</h1>
+    <section class="main-section">
+      <header>
+        <div id="navbar-container"></div>
+      </header>
+      <div class="header-container">
+        <h1>Edit post</h1>
+      </div>
+      <section class="create-edit-container">
+        <form id="create-form" class="create-form">
+          <div class="field">
+            <label for="media" class="form-label"
+              >Image url (Preferred image proportions: square format)</label
+            >
+            <input
+              type="url"
+              placeholder="Image url"
+              name="imageUrl"
+              id="media"
+              class="create-edit-inputfield"
+              aria-required="true"
+            />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="field">
+            <label for="body" class="form-label">Post content</label>
+            <textarea
+              placeholder="Post content"
+              name="content"
+              id="caption"
+              class="caption-textarea"
+              aria-required="true"
+            ></textarea>
+            <span class="error-error"></span>
+
+            <div class="word-count-container">
+              <p class="wordCount" id="wordCount">Words: 0</p>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <a href="/profile/index.html" class="cancel-btn">Cancel</a>
+            <button type="submit" class="post-btn" id="post-btn">Post</button>
+          </div>
+        </form>
+      </section>
+    </section>
+    <div id="footer-container"></div>
   </body>
 </html>
