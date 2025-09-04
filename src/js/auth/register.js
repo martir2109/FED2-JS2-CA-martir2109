@@ -1,6 +1,10 @@
-import { showError, clearError, togglePassword } from "../utils.js";
-import { API_BASE_URL } from "../utils.js";
-import { API_ENDPOINTS } from "../utils.js";
+import {
+  showError,
+  clearError,
+  togglePassword,
+  API_BASE_URL,
+  API_ENDPOINTS,
+} from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form");
