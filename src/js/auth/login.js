@@ -1,6 +1,10 @@
-import { showError, clearError, togglePassword } from "../utils.js";
-import { API_BASE_URL } from "../utils.js";
-import { API_ENDPOINTS } from "../utils.js";
+import {
+  showError,
+  clearError,
+  togglePassword,
+  API_BASE_URL,
+  API_ENDPOINTS,
+} from "../utils.js";
 
 export async function login({ email, password }) {
   try {
@@ -27,9 +31,12 @@ export async function login({ email, password }) {
     localStorage.setItem("user", JSON.stringify(user));
 
     const userData = user.data || user;
+
+    localStorage.setItem("user", JSON.stringify(userData));
+
     localStorage.setItem(
       "userName",
-      userData.name || user.data.username || userData.email || "user"
+      userData.username || userData.name || userData.email || "User"
     );
 
     return { token, user };
@@ -77,7 +84,6 @@ document
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
           },
         }
       );
