@@ -54,11 +54,12 @@
 }
 
 .bi-house-door,
+.bi-search,
 .bi-person,
 .bi-gear,
 .bi-box-arrow-right {
   color: var(--black);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
@@ -134,6 +135,7 @@
   }
 
   .bi-house-door,
+  .bi-search,
   .bi-person,
   .bi-gear,
   .bi-box-arrow-right {
