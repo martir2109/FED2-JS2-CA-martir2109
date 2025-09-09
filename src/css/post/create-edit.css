@@ -12,10 +12,11 @@
   align-items: center;
 }
 
-.create-form {
+.create-form,
+.edit-form {
   width: 100%;
-  max-width: 800px;
-  margin-top: 100px;
+  max-width: 750px;
+  margin-top: 60px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -34,6 +35,7 @@
 
 .create-edit-inputfield {
   width: 100%;
+  max-width: 750px;
   height: 52px;
   font-size: 1.125rem;
   padding: 10px;
@@ -42,8 +44,9 @@
   font-family: inherit;
 }
 
-.caption-textarea {
+.post-body {
   width: 100%;
+  max-width: 750px;
   height: 200px;
   font-size: 1.125rem;
   padding: 10px;
@@ -67,6 +70,7 @@
 
 .btn-container {
   width: 100%;
+  max-width: 750px;
   height: fit-content;
   display: flex;
   justify-content: center;
@@ -75,7 +79,9 @@
 }
 
 .cancel-btn,
-.post-btn {
+.post-btn,
+.update-btn,
+.delete-btn {
   width: 50%;
   height: 52px;
   font-size: clamp(1.5rem, 5vw, 1.3rem);
@@ -99,14 +105,61 @@
   color: var(--white);
 }
 
-.post-btn {
+.post-btn,
+.update-btn {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   border: 1px solid var(--primary-color);
 }
 
-.post-btn:hover {
+.post-btn:hover,
+.update-btn:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
+}
+
+.delete-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+.delete-btn {
+  background-color: red;
+  color: var(--white);
+  border: 1px solid red;
+}
+
+.delete-btn:hover {
+  background-color: var(--white);
+  color: red;
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 900px) {
+  .create-form,
+  .edit-form {
+    width: 90%;
+  }
+
+  .btn-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .cancel-btn,
+  .post-btn,
+  .update-btn {
+    width: 100%;
+  }
+
+  .delete-btn {
+    width: 80%;
+  }
 }
