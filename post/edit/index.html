@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      meta
+      name="description"
+      content="A simple social media web application where you are able to see other users posts and follow them."
+    />
+    <meta
+      keywords=""
+      content="social media, posts, web application, follow, interact with posts"
+    />
+    <meta name="author" content="Martine Reppesgård Karlsen" />
     <title>Posty | Edit post</title>
 
     <!-- Favicon -->
@@ -12,7 +22,7 @@
     <link rel="stylesheet" href="../../src/css/style.css" />
     <link rel="stylesheet" href="../../src/css/navbar.css" />
     <link rel="stylesheet" href="../../src/css/footer.css" />
-    <link rel="stylesheet" href="../../src/css/create-edit.css" />
+    <link rel="stylesheet" href="../../src/css/post/create-edit.css" />
 
     <!-- Bootstrap icon libary -->
     <link
@@ -35,7 +45,19 @@
         <h1>Edit post</h1>
       </div>
       <section class="create-edit-container">
-        <form id="create-form" class="create-form">
+        <form id="edit-form" class="edit-form">
+          <div class="field">
+            <label for="title" class="form-label">Post title</label>
+            <input
+              type="text"
+              placeholder="Post title"
+              name="title"
+              id="title"
+              class="create-edit-inputfield"
+              aria-required="true"
+            />
+            <span id="title-error" class="error-message"></span>
+          </div>
           <div class="field">
             <label for="media" class="form-label"
               >Image url (Preferred image proportions: square format)</label
@@ -48,7 +70,20 @@
               class="create-edit-inputfield"
               aria-required="true"
             />
-            <span class="error-message"></span>
+            <span id="media-error" class="error-message"></span>
+          </div>
+
+          <div class="field">
+            <label for="alt" class="form-label">Image ALT text</label>
+            <input
+              type="text"
+              placeholder="Image ALT text"
+              name="imageUrl"
+              id="alt"
+              class="create-edit-inputfield"
+              aria-required="true"
+            />
+            <span id="alt-error" class="error-message"></span>
           </div>
 
           <div class="field">
@@ -56,20 +91,27 @@
             <textarea
               placeholder="Post content"
               name="content"
-              id="caption"
-              class="caption-textarea"
+              id="body"
+              class="post-body"
               aria-required="true"
             ></textarea>
-            <span class="error-error"></span>
+            <span id="body-error" class="error-message"></span>
 
             <div class="word-count-container">
-              <p class="wordCount" id="wordCount">Words: 0</p>
+              <p class="word-count" id="word-count">Words: 0</p>
             </div>
           </div>
 
           <div class="btn-container">
-            <a href="/profile/index.html" class="cancel-btn">Cancel</a>
-            <button type="submit" class="post-btn" id="post-btn">Update</button>
+            <a href="../../profile/index.html" class="cancel-btn">Cancel</a>
+            <button type="submit" class="update-btn" id="update-btn">
+              Update
+            </button>
+          </div>
+          <div class="delete-container">
+            <button type="button" class="delete-btn" id="delete-btn">
+              Delete post
+            </button>
           </div>
         </form>
       </section>
