@@ -9,7 +9,7 @@
 .note {
   font-size: 0.9rem;
   font-style: italic;
-  color: red;
+  color: var(--grey);
 }
 
 .login-register-body {
@@ -50,9 +50,42 @@
   border: 1px solid var(--black);
 }
 
-::placeholder {
-  color: var(--black);
-  opacity: 0.5;
+.form-item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.form-item input {
+  display: block;
+  background: transparent;
+  border: solid 1px var(--grey);
+  transition: all 0.3s ease;
+  padding: 0 15px;
+}
+
+.form-item input:focus {
+  border-color: var(--blue);
+}
+.form-item .form-label {
+  position: absolute;
+  cursor: text;
+  z-index: 2;
+  top: 13px;
+  left: 10px;
+  font-weight: 500;
+  background: #fff;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+  color: grey;
+}
+
+.form-item .inputfield:focus + .form-label,
+.form-item .inputfield:not(:placeholder-shown) + .form-label {
+  top: -10px;
+}
+
+.form-item .inputfield:focus + .form-label {
+  color: var(--blue);
 }
 
 .register-btn,
@@ -114,4 +147,21 @@
 .checkbox {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .form-section {
+    margin-top: 25px;
+  }
+
+  .text-under-form {
+    margin-top: 20px;
+  }
+
+  .text-under-content {
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    text-align: center;
+  }
 }

@@ -49,47 +49,47 @@
 
       <section class="form-section">
         <form id="register-form" name="register" class="register-form">
-          <div>
-            <label for="name" class="form-label">Name</label>
+          <div class="form-item">
             <input
               id="name"
               type="text"
               class="inputfield"
               name="name"
               title="Please enter a username using only letters and numbers"
-              placeholder="Enter your name"
+              placeholder=" "
               aria-required="true"
             />
+            <label for="name" class="form-label">Name*</label>
             <span id="name-error" class="error-message"></span>
           </div>
 
-          <div>
-            <label for="email" class="form-label">Email</label>
-            <span class="note"
-              >(Only emails ending in @stud.noroff.no allowed.)</span
-            >
+          <div class="form-item">
             <input
               type="email"
-              placeholder="Enter your email"
               name="email"
               class="inputfield"
               id="email"
               aria-required="true"
+              placeholder=" "
               title="Please enter a valid noroff.no or stud.noroff.no address"
             />
+            <label for="email" class="form-label">Email*</label>
             <span id="email-error" class="error-message"></span>
+            <span class="note"
+              >(Only emails ending in @stud.noroff.no allowed.)</span
+            >
           </div>
           <!--  pattern="^[\w\-.]+@(stud\.)?noroff\.no$" -->
-          <div>
-            <label for="password" class="form-label">Password</label>
+          <div class="form-item">
             <input
               type="password"
               name="password"
               id="password"
               class="inputfield"
-              placeholder="Enter a password"
+              placeholder=" "
               aria-required="true"
             />
+            <label for="password" class="form-label">Password*</label>
             <span id="password-error" class="error-message"></span>
           </div>
           <div class="show-password-container">
@@ -122,6 +122,4 @@
     </div>
     <div id="footer-container"></div>
   </body>
-  <!-- testuser1234567@stud.noroff.no -->
-  <!-- test1234 -->
 </html>

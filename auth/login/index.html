@@ -47,32 +47,33 @@
       </div>
       <section class="form-section">
         <form id="login-form" name="login" class="login-form">
-          <div>
-            <label for="email" class="form-label">Email</label>
-            <span class="note"
-              >(Only emails ending in @stud.noroff.no allowed.)</span
-            >
+          <div class="form-item">
             <input
               id="email"
               type="email"
               name="email"
               class="inputfield"
-              placeholder="Email"
+              placeholder=" "
               aria-required="true"
             />
+            <label for="email" class="form-label">Email*</label>
             <span id="email-error" class="error-message"></span>
+            <span class="note"
+              >(Only emails ending in @stud.noroff.no allowed.)</span
+            >
           </div>
 
-          <div>
-            <label for="password" class="form-label">Password</label>
+          <div class="form-item">
             <input
               type="password"
               name="password"
               id="password"
               class="inputfield"
-              placeholder="Password"
+              placeholder=" "
               aria-required="true"
             />
+            <label for="password" class="form-label">Password*</label>
+
             <span id="password-error" class="error-message"></span>
           </div>
           <div class="remember-container">
@@ -83,6 +84,7 @@
                 class="checkbox"
                 aria-required="true"
                 aria-label="Checkbox"
+                placeholder=" "
                 id="show-password"
               />
               Show password
