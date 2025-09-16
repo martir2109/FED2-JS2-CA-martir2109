@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      meta
+      name="description"
+      content="A simple social media web application where you are able to see other users posts and follow them."
+    />
+    <meta
+      keywords=""
+      content="social media, posts, web application, follow, interact with posts"
+    />
+    <meta name="author" content="Martine Reppesgård Karlsen" />
+    <title>Posty | View Profile</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../public/images/favicon.png" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link rel="stylesheet" href="../../src/css/navbar.css" />
+    <link rel="stylesheet" href="../../src/css/profile/profile.css" />
+    <link rel="stylesheet" href="../../src/css/footer.css" />
+
+    <!-- Bootstrap icon libary -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Script -->
+    <script type="module" src="../../src/js/utils.js"></script>
+    <script type="module" src="../../src/js/navbar.js"></script>
+    <script type="module" src="../../src/js/footer.js"></script>
+    <script type="module" src="../../src/js/profile/view-profile.js"></script>
+
+
+  </head>
+  <body>
+    <header>
+      <div id="navbar-container"></div>
+    </header>
+    <section class="profile-section">
+      <div class="header">
+        <h1>Name</h1>
+      </div>
+      <div class="loader" id="loader"></div>
+      <div class="email-container">
+        <p>Email@example.com</p>
+      </div>
+      <section class="profile-details-container">
+        <a href="" class="followers-link">
+        <div class="followers-container">
+          <p>0</p>
+          <p>Followers</p>
+        </div>
+      </a>
+      <a href="" class="following-link">
+
+        <div class="following-container">
+          <p>0</p>
+          <p>Following</p>
+        </div>
+        </a>
+
+      </section>
+      <div id="follow-btn-container" class="follow-btn-container">
+        <button id="follow-btn" class="follow-btn">+ Follow</button>
+    </div>
+    
+    <div class="create-container">
+        <div class="my-posts-text-container">
+          <h2>Posts</h2>
+        </div>
+       
+      </div>
+      </div>
+      <section class="posts-container" id="posts-container"></section>
+    </section>
+    <div id="footer-container"></div>
+  </body>
+</html>
