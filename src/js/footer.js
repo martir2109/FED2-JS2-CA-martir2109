@@ -7,7 +7,7 @@ function createFooter() {
             <a href="../../footer-links/about/index.html">
               <p>About</p>
             </a>
-            <a href="../../footer-links/contact/index.htmø">
+            <a href="../../footer-links/contact/index.html">
               <p>Contact/ Support</p>
             </a>
             <a href="../../footer-links/privacy-policy/index.html">
