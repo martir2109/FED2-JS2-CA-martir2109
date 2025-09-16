@@ -40,7 +40,6 @@
 
 .create-edit-inputfield {
   width: 100%;
-  max-width: 750px;
   height: 52px;
   font-size: 1.125rem;
   padding: 10px;
@@ -51,7 +50,6 @@
 
 .post-body {
   width: 100%;
-  max-width: 750px;
   height: 200px;
   font-size: 1.125rem;
   padding: 10px;
@@ -75,7 +73,6 @@
 
 .btn-container {
   width: 100%;
-  max-width: 750px;
   height: fit-content;
   display: flex;
   justify-content: center;
@@ -130,7 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .delete-btn {
@@ -165,5 +162,12 @@
 
   .delete-btn {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .create-form,
+  .edit-form {
+    padding: 20px;
   }
 }
