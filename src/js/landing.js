@@ -12,7 +12,8 @@ function getUserName() {
 function createLoggedOutContent() {
   return `
      <div class="welcome-container">
-     <div class="welcome-header-container">
+     <div class="loader" id="loader"></div>
+     <div class="welcome-header-container typewriter">
       <h1>Welcome to Posty!</h1>
       </div>
       <div class="intro-container">
@@ -32,6 +33,7 @@ function createLoggedInContent() {
   const userName = getUserName();
   return `
     <div class="feed-container">
+    <div class="loader" id="loader"></div>
     <div class="welcome-back-container">
       <h1>Welcome back, ${userName}!</h1>
       </div>
