@@ -1,5 +1,3 @@
-# FED2-JS2-CA-martir2109
-
 # FED2 JavaScript 2 Course Assignment
 
 Hello there! 👋🏼
@@ -10,7 +8,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 ## 🌐 Live website
 
-You can view the live project here:
+🎯 Check out the live project: [Posty](https://posty-martir2109.netlify.app/)
 
 ## 📸 Website Preview
 
