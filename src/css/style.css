@@ -1,5 +1,4 @@
 :root {
-  background-color: var(--red);
   --primary-color: #272727;
   --secondary-color: #efd09e;
   --white: #ffffff;
@@ -57,7 +56,7 @@ body {
 }
 
 .form-label {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 5vw, 1.25rem);
 }
 
 .input-error {
@@ -67,4 +66,53 @@ body {
 .error-message {
   color: red;
   font-size: 0.9rem;
+}
+
+/* Loader css: https://cssloaders.github.io/ */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  transition: opacity 0.5s ease;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  animation: prixClipFix 2s linear infinite;
+}
+
+.loaderHidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
 }
