@@ -22,7 +22,7 @@
 }
 
 .email-container p {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 5vw, 1.25rem);
 }
 
 .profile-details-container {
@@ -96,6 +96,15 @@
   max-width: 280px;
   aspect-ratio: 1;
   min-width: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.post:hover {
+  transform: translateY(-20px);
+  transition: ease 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
 }
 
 .post-image {
@@ -137,7 +146,7 @@
   font-size: clamp(1rem, 5vw, 1.25rem);
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .posts-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -152,5 +161,16 @@
 @media screen and (max-width: 750px) {
   .posts-container {
     grid-template-columns: 1fr;
+  }
+
+  .email-container {
+    margin-top: 30px;
+    width: 90%;
+  }
+
+  .profile-details-container {
+    margin-top: 20px;
+
+    gap: 50px;
   }
 }

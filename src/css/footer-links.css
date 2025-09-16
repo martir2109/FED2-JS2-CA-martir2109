@@ -8,7 +8,8 @@
 }
 
 .coming-soon-content {
-  width: 50%;
+  width: 80%;
+  max-width: 400px;
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -18,6 +19,7 @@
   background-color: var(--primary-color);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
 }
 
 .coming-soon-content h1,

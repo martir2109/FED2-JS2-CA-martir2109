@@ -1,11 +1,3 @@
-.header-container {
-  width: 100%;
-  text-align: center;
-  height: auto;
-  margin-bottom: 50px;
-  margin-top: 0;
-}
-
 .note {
   font-size: 0.9rem;
   font-style: italic;
@@ -18,7 +10,6 @@
   display: flex;
   flex-direction: column;
   place-items: center;
-  margin-top: 180px;
 }
 
 .form-section {
@@ -33,7 +24,7 @@
 .register-form,
 .login-form {
   max-width: 561px;
-  width: 100%;
+  width: 90%;
   height: fit-content;
   padding: 40px;
   display: flex;
@@ -42,6 +33,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
   background-color: var(--white);
+  margin-top: 100px;
 }
 
 .inputfield {
@@ -80,6 +72,7 @@
   padding: 0 10px;
   transition: all 0.3s ease;
   color: grey;
+  border-radius: 10px;
 }
 
 .form-item .inputfield:focus + .form-label,
@@ -155,6 +148,15 @@
 @media screen and (max-width: 750px) {
   .form-section {
     margin-top: 25px;
+  }
+
+  .register-form,
+  .login-form {
+    padding: 30px;
+  }
+
+  .login-form {
+    margin-top: 20px;
   }
 
   .text-under-form {

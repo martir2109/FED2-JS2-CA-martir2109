@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --primary-color: #272727;
   --secondary-color: #efd09e;
@@ -9,31 +13,31 @@
 }
 
 .title {
-  font-size: clamp(2.668rem, 5vw, 2.5rem);
+  font-size: clamp(2.5rem, 5vw, 2.668rem);
   font-weight: 500;
   color: var(--black);
 }
 
 h1 {
-  font-size: clamp(2.125rem, 5vw, 2rem);
+  font-size: clamp(1.9rem, 5vw, 2.125rem);
   font-weight: 500;
   color: var(--black);
 }
 
 h2 {
-  font-size: clamp(1.875rem, 5vw, 1.65rem);
+  font-size: clamp(1.6rem, 5vw, 1.875rem);
   font-weight: 500;
   color: var(--black);
 }
 
 h3 {
-  font-size: clamp(1.75rem, 5vw, 1.5rem);
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
   font-weight: 500;
   color: var(--black);
 }
 
 p {
-  font-size: clamp(1.5rem, 5vw, 1.3rem);
+  font-size: clamp(1.3rem, 5vw, 1.5rem);
   font-weight: normal;
   color: var(--black);
 }
@@ -114,5 +118,30 @@ body {
   }
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+.to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.to-top a {
+  text-decoration: none;
+}
+
+.bi-arrow-up-circle-fill {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--primary-color);
+}
+
+.bi-arrow-up-circle-fill:hover {
+  color: var(--secondary-color);
+}
+
+@media screen and (max-width: 750px) {
+  .header-container {
+    margin-top: 130px;
   }
 }

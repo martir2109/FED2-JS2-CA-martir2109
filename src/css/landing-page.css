@@ -35,7 +35,7 @@
 }
 
 .intro-container {
-  width: 100%;
+  width: 90%;
   min-height: 100px;
   justify-content: center;
   margin-top: 30px;
@@ -85,7 +85,7 @@
 }
 
 .welcome-back-container {
-  width: 100%;
+  width: 90%;
   height: fit-content;
   text-align: center;
 }
@@ -98,6 +98,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgb(108, 108, 108, 0.25);
+}
+
+.feed-header-container h2 {
+  margin-bottom: 20px;
 }
 
 .feed-posts-container {
@@ -135,6 +139,15 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.post:hover {
+  transform: translateY(-20px);
+  transition: ease 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
 }
 
 .post-media {
@@ -153,7 +166,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   /* Logged in */
   .feed-posts {
     grid-template-columns: repeat(3, 1fr);

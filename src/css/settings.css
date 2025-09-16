@@ -9,7 +9,7 @@
 
 .profile-details-container {
   max-width: 561px;
-  width: 100%;
+  width: 90%;
   height: fit-content;
   padding: 40px;
   display: flex;
@@ -63,4 +63,14 @@
 
 .logout-btn:hover i {
   color: var(--primary-color);
+}
+
+@media screen and (max-width: 750px) {
+  .settings-container {
+    margin-top: 50px;
+  }
+
+  .profile-details-container {
+    padding: 30px;
+  }
 }
