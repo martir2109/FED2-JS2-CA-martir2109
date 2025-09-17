@@ -25,21 +25,14 @@ export async function login({ email, password }) {
     }
 
     const token = data.accessToken || data.data?.accessToken;
-    const user = data || data.data;
+    const user = data.data || data;
 
     localStorage.setItem("accessToken", token);
     localStorage.setItem("user", JSON.stringify(user));
+    const userName = user.name || user.username || user.email;
+    localStorage.setItem("userName", userName);
 
-    const userData = user.data || user;
-
-    localStorage.setItem("user", JSON.stringify(userData));
-
-    localStorage.setItem(
-      "userName",
-      userData.username || userData.name || userData.email || "User"
-    );
-
-    return { token, user };
+    return { token, user, userName };
   } catch (error) {
     throw error;
   }
@@ -75,7 +68,7 @@ document
     if (hasError) return;
 
     try {
-      const { token, user } = await login({ email, password });
+      const { token, user, userName } = await login({ email, password });
       alert("Login successful!");
 
       const apiKeyResponse = await fetch(
