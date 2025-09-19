@@ -36,6 +36,15 @@
     <section class="settings-container">
       <form class="profile-details-container">
         <div class="inputfield-container">
+          <label for="avatar" class="form-label">Avatar</label>
+          <input id="avatar" class="inputfield"  />
+          <span id="avatar-error" class="error-message"></span>
+
+        </div>
+        <div class="edit-avatar-container">
+        <button type="button" class="edit-avatar-btn" id="edit-avatar-btn">Edit avatar</button>
+        </div>
+        <div class="inputfield-container">
           <label for="name" class="form-label">Name</label>
           <input id="name" class="inputfield" disabled />
         </div>
@@ -50,9 +59,9 @@
 
 
 
-        <button type="submit"href="javascript:void(0);" onclick="logout()" class="logout-btn" id="logout-btn"><i class="bi bi-box-arrow-right"></i>
-            Log out
-          </button>
+        <button type="button" onclick="logout()" class="logout-btn" id="logout-btn">
+          <i class="bi bi-box-arrow-right"></i> Log out
+        </button>
 
       </form>
     </section>
