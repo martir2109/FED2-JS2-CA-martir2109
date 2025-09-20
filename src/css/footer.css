@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 696px;
   background-color: var(--primary-color);
+  overflow-wrap: break-word;
 }
 
 .main-footer p,
