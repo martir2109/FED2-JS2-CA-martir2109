@@ -145,9 +145,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     ${
       post.media?.url
         ? `<img src="${post.media.url}" alt="Post media" class="post-media">`
-        : `<img src="../../public/images/no image - default image.jpg"`
+        : `<img src="../../public/images/no image - default image.jpg" class="post-media>`
     }
-    <p>${post.body ? post.body.substring(0, 50) + "..." : ""}</p>
+    <p class="post-body">${
+      post.body ? post.body.substring(0, 50) + "..." : ""
+    }</p>
     </div>
     </a>
     `
