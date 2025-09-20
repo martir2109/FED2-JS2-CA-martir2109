@@ -6,7 +6,16 @@ import {
   API_ENDPOINTS,
 } from "../utils.js";
 
-export async function login({ email, password }) {
+/**
+ * Log in a user with their email and password.
+ * @param {Object} credentials - An object with the user's email and password.
+ * @param {string} credentials.email - The user's email.
+ * @param {string} credentials.password - The user's password.
+ * @returns {Promise<Object>} Returns a promise with the login info (token, user, and userName).
+ * @throws {Error} Throws an error if login fails.
+ */
+
+async function login({ email, password }) {
   try {
     const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.AUTH.LOGIN}`, {
       method: "POST",
@@ -38,6 +47,11 @@ export async function login({ email, password }) {
   }
 }
 
+/**
+ * Runs when the login form is submittet.
+ * Validates the email and password input fields, shows errors if needed, and logs in the user.
+ * @param {Event} event - The form submission event.
+ */
 document
   .getElementById("login-form")
   .addEventListener("submit", async function (event) {
@@ -99,6 +113,12 @@ document
 
 const inputfield = document.querySelectorAll(".inputfield");
 
+/**
+ * Sets up input fields so that:
+ * - Errors are cleared when the user types or focuses.
+ * - Auto-completes stud.noroff.no domain on '@'
+ * @param {HTMLInputElement} input - An input field element.
+ */
 inputfield.forEach((input) => {
   input.addEventListener("focus", () => {
     clearError(input.id);
