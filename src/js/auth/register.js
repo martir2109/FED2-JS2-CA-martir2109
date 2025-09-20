@@ -6,11 +6,25 @@ import {
   API_ENDPOINTS,
 } from "../utils.js";
 
+/**
+ * Registers a new user with name, email and password.
+ * @param {object} credentials - An object with user's name, email and password.
+ * @param {string} credentials.name - The user's name.
+ * @param {string} credentials.email - The user's email (must be a stud.noroff.no email).
+ * @param {string} credentials.password - The user's password (min 8 characters).
+ * @returns {Promise<Object>} Returns a promise with the registration response data.
+ * @throws {Error} Throws an error if registration fails
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form");
 
   if (!form) return;
 
+  /**
+   * Runs when the register form is submitted.
+   * Validates the name, email and password input fields, shows errors if needed, and register the user.
+   * @param {Event} event - The form submission event.
+   */
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -88,6 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const inputs = document.querySelectorAll(".inputfield");
 
+  /**
+   * Sets up input fields so that:
+   * - Errors are cleared when the user types or focuses.
+   * - Auto-completes stud.noroff.no domain on '@'
+   * @param {HTMLInputElement} input - An input field element.
+   */
   inputs.forEach((input) => {
     input.addEventListener("focus", () => {
       clearError(input.id);
@@ -111,6 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/**
+ * Toggles password visibility when checkbox is changed.
+ * @param {Event} event - The change event from the checkbox
+ */
 
 const passwordCheckbox = document.getElementById("show-password");
 if (passwordCheckbox) {

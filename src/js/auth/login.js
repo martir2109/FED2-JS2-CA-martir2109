@@ -48,7 +48,7 @@ async function login({ email, password }) {
 }
 
 /**
- * Runs when the login form is submittet.
+ * Runs when the login form is submitted.
  * Validates the email and password input fields, shows errors if needed, and logs in the user.
  * @param {Event} event - The form submission event.
  */
@@ -138,6 +138,11 @@ inputfield.forEach((input) => {
     }
   });
 });
+
+/**
+ * Toggles password visibility when checkbox is changed.
+ * @param {Event} event - The change event from the checkbox
+ */
 
 const passwordCheckbox = document.getElementById("show-password");
 if (passwordCheckbox) {
