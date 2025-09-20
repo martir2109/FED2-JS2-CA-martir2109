@@ -1,4 +1,13 @@
-import { API_BASE_URL, API_ENDPOINTS } from "../utils.js";
+import {
+  showError,
+  clearError,
+  API_BASE_URL,
+  API_ENDPOINTS,
+} from "../utils.js";
+
+const currentUser = JSON.parse(localStorage.getItem("user")) || {};
+const currentUserName =
+  currentUser.name || currentUser.username || currentUser.email || "User";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -10,13 +19,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const accessToken = localStorage.getItem("accessToken");
     const apiKey = localStorage.getItem("apiKey");
-    const currentUser = JSON.parse(localStorage.getItem("user")) || {};
-    const currentUserName =
-      currentUser.name || currentUser.username || currentUser.email || "User";
     const editLink = document.getElementById("edit-link");
 
     const response = await fetch(
-      `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}?_author=true&_reactions=true`,
+      `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}?_author=true&_reactions=true&_comments=true`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -26,6 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
 
     const post = await response.json();
+
     if (!response.ok) {
       const errorMessage =
         post.errors?.[0]?.message || `HTTP ${response.status}`;
@@ -33,6 +40,51 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const postData = post.data ?? post;
+    const commentsList = document.querySelector(".comments-list");
+    commentsList.innerHTML = "";
+
+    if (postData.comments && postData.comments.length > 0) {
+      commentsList.innerHTML = postData.comments
+        .map((comment) => {
+          const isOwner = comment.owner === currentUserName;
+          return `
+            <li data-comment-id="${comment.id}">
+              <div class="comment-main">
+                <div class="comment-container">
+                  <span>${comment.owner}: ${comment.body}</span>
+                  <div class="comment-actions">
+                    ${
+                      isOwner
+                        ? '<i class="bi bi-trash delete-btn" title="Delete"></i>'
+                        : ""
+                    }
+                  </div>
+                </div>
+              </div>
+            </li>
+          `;
+        })
+        .join("");
+    } else {
+      commentsList.innerHTML = "<li>No comments yet.</li>";
+    }
+
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        const commentId = event.target.closest("li").dataset.commentId;
+        deleteComment(postId, commentId);
+      });
+    });
+
+    const chatButton = document.querySelector(".bi-chat");
+    const commentFormContainer = document.querySelector(
+      ".comment-create-container"
+    );
+    if (chatButton && commentFormContainer) {
+      chatButton.addEventListener("click", () => {
+        commentFormContainer.classList.toggle("active");
+      });
+    }
 
     const authorName =
       postData.author?.name || postData.author?.username || "Unknown Author";
@@ -67,6 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <p class="post-update">Post Published: ${postDate.toLocaleDateString()}</p>
       <p class="post-update">Last updated: ${postUpdate.toLocaleDateString()}</p>
     `;
+
     const reactionContainer = document.querySelector(".reaction-container");
     const reactionCountElement = reactionContainer.querySelector("p");
     const reactionButton = reactionContainer.querySelector("i");
@@ -95,7 +148,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     updateReactionButton();
 
-    console.log(postData);
     reactionButton.addEventListener("click", async () => {
       if (userHasReacted) return;
       try {
@@ -131,3 +183,102 @@ document.addEventListener("DOMContentLoaded", async () => {
     alert("Failed to load the post. Please try again later.");
   }
 });
+
+document.querySelectorAll(".comment-form").forEach((form) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const postId = new URLSearchParams(window.location.search).get("id");
+    const commentText = event.target.querySelector("textarea").value.trim();
+    const maxLength = 200;
+
+    clearError("comment");
+
+    if (commentText.length > maxLength) {
+      showError(
+        "comment",
+        `Comment cannot be longer than ${maxLength} characters.`
+      );
+      return;
+    }
+
+    if (!commentText) return;
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}/comment`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            "X-Noroff-API-Key": localStorage.getItem("apiKey"),
+          },
+          body: JSON.stringify({ body: commentText }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorMessage =
+          data.errors?.[0]?.message || `HTTP ${response.status}`;
+        throw new Error(errorMessage);
+      }
+
+      const newComment = await response.json();
+      const commentData = newComment.data;
+
+      const commentsList = document.querySelector(".comments-list");
+
+      const newCommentElement = document.createElement("li");
+      newCommentElement.dataset.commentId = commentData.id;
+
+      const textSpan = document.createElement("span");
+      textSpan.textContent = `${commentData.owner}: ${commentData.body}`;
+      newCommentElement.appendChild(textSpan);
+
+      if (commentData.owner === currentUserName) {
+        const deleteBtn = document.createElement("i");
+        deleteBtn.classList.add("bi", "bi-trash");
+        deleteBtn.style.cursor = "pointer";
+        deleteBtn.style.marginLeft = "10px";
+
+        deleteBtn.addEventListener("click", () => {
+          deleteComment(postId, commentData.id);
+        });
+
+        newCommentElement.appendChild(deleteBtn);
+      }
+
+      commentsList.appendChild(newCommentElement);
+
+      event.target.reset();
+      window.location.reload();
+    } catch (error) {
+      console.error("Error posting comment:", error);
+      alert("Failed to post comment. Please try again.");
+    }
+  });
+});
+
+async function deleteComment(postId, commentId) {
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}/comment/${commentId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "X-Noroff-API-Key": localStorage.getItem("apiKey"),
+        },
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.errors?.[0]?.message || "Failed to comment");
+    }
+
+    window.location.reload();
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+  }
+}
