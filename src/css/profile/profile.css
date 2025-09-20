@@ -194,6 +194,11 @@
 
   .profile-details-container {
     margin-top: 20px;
-    gap: 50px;
+    gap: 10%;
+  }
+
+  .avatar-container {
+    max-width: 100px;
+    width: 100%;
   }
 }
