@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   const accessToken = localStorage.getItem("accessToken");
   const apiKey = localStorage.getItem("apiKey");
   const userName = localStorage.getItem("userName");
+  const avatarContianer = document.getElementById("avatar-container");
+  const avatar = document.getElementById("avatar");
 
   await loadUserProfile();
   await loadUserPosts();
@@ -36,11 +38,18 @@ document.addEventListener("DOMContentLoaded", async function () {
       );
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        const errorMessage =
+          post.errors?.[0]?.message || `HTTP ${response.status}`;
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
       const userProfile = result.data;
+
+      if (avatar && userProfile.avatar) {
+        avatar.src = userProfile.avatar.url;
+        avatar.alt = userProfile.avatar.alt || "User avatar";
+      }
 
       if (emailContainer && userProfile.email) {
         emailContainer.textContent = userProfile.email;
