@@ -19,7 +19,7 @@ html {
 }
 
 h1 {
-  font-size: clamp(1.9rem, 5vw, 2.125rem);
+  font-size: clamp(1.8rem, 5vw, 2.125rem);
   font-weight: 500;
   color: var(--black);
 }
