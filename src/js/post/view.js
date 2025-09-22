@@ -3,6 +3,7 @@ import {
   clearError,
   API_BASE_URL,
   API_ENDPOINTS,
+  API_Headers_accesstoken_apikey,
 } from "../utils.js";
 
 const currentUser = JSON.parse(localStorage.getItem("user")) || {};
@@ -24,10 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch(
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}?_author=true&_reactions=true&_comments=true`,
       {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
       }
     );
 
