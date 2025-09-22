@@ -1,4 +1,8 @@
-import { API_BASE_URL, API_ENDPOINTS } from "../utils.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_content_apikey,
+} from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   let allPosts = [];
@@ -28,11 +32,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}?_followers=true&_following=true`,
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         }
       );
 
@@ -78,11 +78,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}/posts`,
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         }
       );
 
