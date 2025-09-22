@@ -18,7 +18,7 @@
 .following-container,
 .followers-container {
   max-width: 1000px;
-  width: 100%;
+  width: 90%;
   min-height: 100vh;
   margin-top: 40px;
   display: flex;
@@ -43,7 +43,6 @@
 
 .following-profile,
 .followers-profile {
-  font-size: clamp(1rem, 5vw, 1.25rem);
   display: flex;
   cursor: pointer;
   gap: 10px;
@@ -52,6 +51,11 @@
   height: 52px;
   align-items: center;
   padding: 10px;
+}
+
+.followers-profile p,
+.following-profile p {
+  font-size: clamp(1rem, 5vw, 1.25rem);
 }
 
 .following-profile:hover,
@@ -64,4 +68,11 @@
   font-size: 1.8rem;
   cursor: pointer;
   color: var(--black);
+}
+
+@media screen and (max-width: 750px) {
+  .following-container,
+  .followers-container {
+    width: 80%;
+  }
 }
