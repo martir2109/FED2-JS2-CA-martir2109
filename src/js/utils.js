@@ -73,7 +73,7 @@ export function attachInputListeners(inputSelectors) {
 }
 
 window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
+  const loader = document.querySelector(".loader-container");
   if (!loader) return;
 
   loader.classList.add("loaderHidden");
