@@ -1,4 +1,10 @@
-import { showError, clearError, API_BASE_URL, API_ENDPOINTS } from "./utils.js";
+import {
+  showError,
+  clearError,
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_content_apikey,
+} from "./utils.js";
 
 const accessToken = localStorage.getItem("accessToken");
 const userName = localStorage.getItem("userName");
@@ -77,11 +83,7 @@ async function updateAvatarHandler() {
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
       {
         method: "PUT",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         body: JSON.stringify(updateAvatar),
       }
     );

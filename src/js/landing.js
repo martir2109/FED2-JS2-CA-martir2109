@@ -1,8 +1,12 @@
-import { API_BASE_URL, API_ENDPOINTS } from "./utils.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_apikey,
+} from "./utils.js";
 
 function isUserLoggedIn() {
-  const token = localStorage.getItem("accessToken");
-  return token !== null;
+  const accessToken = localStorage.getItem("accessToken");
+  return accessToken !== null;
 }
 
 function getUserName() {
@@ -58,32 +62,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function loadRecentPosts() {
-    const token = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const container = document.getElementById("feed-posts");
     const feedContainer = document.querySelector(".feed-posts-container");
     const apiKey = localStorage.getItem("apiKey");
     const userName = localStorage.getItem("userName");
 
-    if (!token || !container) return;
+    if (!accessToken || !container) return;
 
     try {
       const followingResponse = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS_FOLLOWING}?_author=true&limit=20`,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
         }
       );
 
       const ownPostsResponse = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}/posts?_author=true&limit=20`,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
         }
       );
 

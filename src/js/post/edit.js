@@ -5,6 +5,8 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   attachInputListeners,
+  API_Headers_accesstoken_apikey,
+  API_Headers_accesstoken_content_apikey,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -36,10 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
       }
     );
 
@@ -119,11 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}`,
         {
           method: "PUT",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
           body: JSON.stringify(updatePost),
         }
       );

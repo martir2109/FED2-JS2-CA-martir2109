@@ -5,6 +5,7 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   attachInputListeners,
+  API_Headers_accesstoken_content_apikey,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,7 +18,6 @@ createPostForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const accessToken = localStorage.getItem("accessToken");
-  const userName = localStorage.getItem("userName");
   const apiKey = localStorage.getItem("apiKey");
 
   if (!accessToken) {
@@ -75,11 +75,7 @@ createPostForm.addEventListener("submit", async function (event) {
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}`,
       {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         body: JSON.stringify(post),
       }
     );

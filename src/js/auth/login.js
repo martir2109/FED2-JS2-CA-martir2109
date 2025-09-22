@@ -4,6 +4,7 @@ import {
   togglePassword,
   API_BASE_URL,
   API_ENDPOINTS,
+  API_Headers_content,
 } from "../utils.js";
 
 /**
@@ -19,9 +20,7 @@ async function login({ email, password }) {
   try {
     const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.AUTH.LOGIN}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: API_Headers_content(),
       body: JSON.stringify({ email, password }),
     });
 

@@ -1,4 +1,9 @@
-import { API_BASE_URL, API_ENDPOINTS } from "../js/utils.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_apikey,
+  API_Headers_accesstoken_content_apikey,
+} from "../js/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   let allPosts = [];
@@ -23,10 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }/search?q=${encodeURIComponent(query)}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
       }
     );
     if (!response.ok) return [];
@@ -41,10 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }/search?q=${encodeURIComponent(query)}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "X-Noroff-API-Key": apiKey,
-        },
+        headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
       }
     );
     if (!response.ok) return [];
@@ -123,11 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}?_author=true&limit=20`,
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-            "X-Noroff-API-Key": apiKey,
-          },
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         }
       );
 
@@ -168,7 +163,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? `<img src="${post.media.url}" alt="Post media" class="explore-post-media">`
                 : `<img src="../../public/images/no image - default image.jpg" alt="Default image" class="explore-post-media">`
             }
-            <p>${post.body ? post.body.substring(0, 50) + "..." : ""}</p>
+            <p class="post-body">${
+              post.body ? post.body.substring(0, 50) + "..." : ""
+            }</p>
           </div>
         </a>
       `
