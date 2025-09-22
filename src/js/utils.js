@@ -82,3 +82,21 @@ window.addEventListener("load", () => {
     loader.remove();
   });
 });
+
+export const API_Headers_accesstoken_content_apikey = (
+  accessToken,
+  apiKey
+) => ({
+  Authorization: `Bearer ${accessToken}`,
+  "Content-Type": "application/json",
+  "X-Noroff-API-Key": apiKey,
+});
+
+export const API_Headers_accesstoken_apikey = (accessToken, apiKey) => ({
+  Authorization: `Bearer ${accessToken}`,
+  "X-Noroff-API-Key": apiKey,
+});
+
+export const API_Headers_content = () => ({
+  "Content-Type": "application/json",
+});
