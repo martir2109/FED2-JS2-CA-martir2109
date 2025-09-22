@@ -59,6 +59,7 @@
 .body {
   margin-top: 20px;
   font-size: clamp(1.25rem, 5vw, 1.35rem);
+  overflow-wrap: break-word;
 }
 
 .back-edit-container,
