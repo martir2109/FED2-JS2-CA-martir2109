@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   const accessToken = localStorage.getItem("accessToken");
   const apiKey = localStorage.getItem("apiKey");
   const userName = localStorage.getItem("userName");
-  const avatarContianer = document.getElementById("avatar-container");
   const avatar = document.getElementById("avatar");
 
   await loadUserProfile();
