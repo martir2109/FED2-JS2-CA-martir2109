@@ -14,6 +14,14 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 Here is a screenshot of the live website: ![Preview of Posty website](./public/images/website-preview.png)
 
+## Technologies used
+
+- HTML5
+- CSS3
+- JavaScript Vanilla (ES6 Modules)
+- Fetch API
+- Netlify (deploymet)
+
 ## 📋 What this assignment is about
 
 I was given the task to create a socail media application. We were required allow the users to perfom CRUD operatiosns, meaning Create, Read, Update and Delete on their posts.
