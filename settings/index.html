@@ -40,12 +40,13 @@
       <form class="profile-details-container">
         <div class="inputfield-container">
           <label for="avatar" class="form-label">Avatar</label>
-          <input id="avatar" class="inputfield"  />
+          <input id="avatar" class="inputfield" />
           <span id="avatar-error" class="error-message"></span>
-
         </div>
         <div class="edit-avatar-container">
-        <button type="button" class="edit-avatar-btn" id="edit-avatar-btn">Edit avatar</button>
+          <button type="button" class="edit-avatar-btn" id="edit-avatar-btn">
+            Edit avatar
+          </button>
         </div>
         <div class="inputfield-container">
           <label for="name" class="form-label">Name</label>
@@ -55,17 +56,19 @@
           <label for="email" class="form-label">Email</label>
           <input id="email" class="inputfield" disabled />
         </div>
-      </div>
-      <div class="inputfield-container">
-        <label for="password" class="form-label">Password</label>
-        <input id="password" class="inputfield" type="password" disabled />
+        <div class="inputfield-container">
+          <label for="password" class="form-label">Password</label>
+          <input id="password" class="inputfield" type="password" disabled />
+        </div>
 
-
-
-        <button type="button" onclick="logout()" class="logout-btn" id="logout-btn">
+        <button
+          type="button"
+          onclick="logout()"
+          class="logout-btn"
+          id="logout-btn"
+        >
           <i class="bi bi-box-arrow-right"></i> Log out
         </button>
-
       </form>
     </section>
 
