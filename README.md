@@ -12,7 +12,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 ## 📸 Website Preview
 
-Here is a screenshot of the live website: ![Preview of Posty website](./public/images/website-preview.png)
+![Preview of Posty website](./public/images/website-preview.png)
 
 ## Technologies used
 
