@@ -3,7 +3,7 @@ import {
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
-} from "../js/utils.js";
+} from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   let allPosts = [];

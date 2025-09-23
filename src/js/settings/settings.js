@@ -4,7 +4,7 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_content_apikey,
-} from "./utils.js";
+} from "../utils.js";
 
 const accessToken = localStorage.getItem("accessToken");
 const userName = localStorage.getItem("userName");
