@@ -1,3 +1,8 @@
+/**
+ * Create the navbar HTML depending on login state.
+ * Check if the user has an access token in localStorage.
+ * @returns {string} The HTML string for navbar.
+ */
 function createNavbar() {
   const isLoggedIn = localStorage.getItem("accessToken") !== null;
 
@@ -70,6 +75,10 @@ function createNavbar() {
   }
 }
 
+/**
+ * Log out the current user by removing user credentials from localStorage.
+ * Redirects to the home page after logout.
+ */
 function logout() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userName");
@@ -83,6 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/**
+ * Toggle the mobile menu open/closed by switching CSS classes.
+ */
 function toggleMobileMenu() {
   const nav = document.querySelector(".topnav");
   const hamburger = document.querySelector(".container");
