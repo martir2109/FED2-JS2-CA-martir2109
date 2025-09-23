@@ -54,3 +54,17 @@ In addition, allowing users to follow/ unfollow users, commenting on posts and l
 5. You must create a README.md with details how to run your project.
 
 ## How to run the project
+
+1. Open project in the terminal
+
+2. Install live-server (if not already installed):
+
+```
+npm install live-server --save-dev
+```
+
+3. Run the project in your browser:
+
+```
+npx live-server
+```
