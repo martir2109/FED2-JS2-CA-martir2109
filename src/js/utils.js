@@ -1,3 +1,8 @@
+/**
+ * Show error message below an input field.
+ * @param {string} inputId - The ID of the input field.
+ * @param {string} message - The error message to display.
+ */
 export function showError(inputId, message) {
   const input = document.getElementById(inputId);
   const errorSpan = document.getElementById(`${inputId}-error`);
@@ -5,6 +10,10 @@ export function showError(inputId, message) {
   errorSpan.textContent = message;
 }
 
+/**
+ * Clear the error message for a given input.
+ * @param {string} inputId - The ID of the input field
+ */
 export function clearError(inputId) {
   const input = document.getElementById(inputId);
   const errorSpan = document.getElementById(`${inputId}-error`);
@@ -12,6 +21,9 @@ export function clearError(inputId) {
   errorSpan.textContent = "";
 }
 
+/**
+ * Toggle password visibility on the password input.
+ */
 export function togglePassword() {
   const passwordInput = document.getElementById("password");
   const checkbox = document.getElementById("show-password");
@@ -23,7 +35,14 @@ export function togglePassword() {
   }
 }
 
+/**
+ * API base url
+ */
 export const API_BASE_URL = "https://v2.api.noroff.dev";
+
+/**
+ * Endpoints for authentication and social API calls.
+ */
 export const API_ENDPOINTS = {
   AUTH: {
     LOGIN: "/auth/login",
@@ -37,6 +56,9 @@ export const API_ENDPOINTS = {
   },
 };
 
+/**
+ * Class to handle live word counting in a textarea.
+ */
 export class Count {
   constructor() {
     this.textarea = document.getElementById("body");
@@ -45,18 +67,29 @@ export class Count {
     this.textarea.addEventListener("input", this.updateCount.bind(this));
   }
 
+  /**
+   * Count the number of words in the textarea.
+   * @returns {number} Word count
+   */
   countWords() {
     const value = this.textarea.value.trim();
     if (!value) return 0;
     return value.split(/\s+/).length;
   }
 
+  /**
+   * Update the word count display.
+   */
   updateCount() {
     const numWords = this.countWords();
     this.wordCount.textContent = `Words: ${numWords}`;
   }
 }
 
+/**
+ * Attach listeners to input to clear error message when typing or focusing.
+ * @param {string[]} inputSelectors - Array of CSS selectors for input.
+ */
 export function attachInputListeners(inputSelectors) {
   const inputs = document.querySelectorAll(inputSelectors.join(", "));
   inputs.forEach((input) => {
@@ -72,6 +105,9 @@ export function attachInputListeners(inputSelectors) {
   });
 }
 
+/**
+ * Remove loader once the window has loaded.
+ */
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader-container");
   if (!loader) return;
@@ -83,6 +119,12 @@ window.addEventListener("load", () => {
   });
 });
 
+/**
+ * Headers with access token, API key, and JSOn content type.
+ * @param {string} accessToken - User access token.
+ * @param {string} apiKey - API key.
+ * @returns {object} Headers object.
+ */
 export const API_Headers_accesstoken_content_apikey = (
   accessToken,
   apiKey
@@ -92,11 +134,21 @@ export const API_Headers_accesstoken_content_apikey = (
   "X-Noroff-API-Key": apiKey,
 });
 
+/**
+ * Headers with access token and API key.
+ * @param {string} accessToken - User access token.
+ * @param {string} apiKey - API key.
+ * @returns {object} Headers object.
+ */
 export const API_Headers_accesstoken_apikey = (accessToken, apiKey) => ({
   Authorization: `Bearer ${accessToken}`,
   "X-Noroff-API-Key": apiKey,
 });
 
+/**
+ *
+ * @returns {object} Headers object.
+ */
 export const API_Headers_content = () => ({
   "Content-Type": "application/json",
 });
