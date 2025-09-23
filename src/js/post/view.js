@@ -4,6 +4,7 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
+  API_Headers_accesstoken_content_apikey,
 } from "../utils.js";
 
 const currentUser = JSON.parse(localStorage.getItem("user")) || {};
@@ -153,10 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}/react/👍`,
           {
             method: "PUT",
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-              "X-Noroff-API-Key": apiKey,
-            },
+            headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
           }
         );
 
@@ -188,6 +186,8 @@ document.querySelectorAll(".comment-form").forEach((form) => {
     const postId = new URLSearchParams(window.location.search).get("id");
     const commentText = event.target.querySelector("textarea").value.trim();
     const maxLength = 200;
+    const accessToken = localStorage.getItem("accessToken");
+    const apiKey = localStorage.getItem("apiKey");
 
     clearError("comment");
 
@@ -206,11 +206,7 @@ document.querySelectorAll(".comment-form").forEach((form) => {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}/comment`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            "X-Noroff-API-Key": localStorage.getItem("apiKey"),
-          },
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
           body: JSON.stringify({ body: commentText }),
         }
       );
@@ -236,8 +232,6 @@ document.querySelectorAll(".comment-form").forEach((form) => {
       if (commentData.owner === currentUserName) {
         const deleteBtn = document.createElement("i");
         deleteBtn.classList.add("bi", "bi-trash");
-        deleteBtn.style.cursor = "pointer";
-        deleteBtn.style.marginLeft = "10px";
 
         deleteBtn.addEventListener("click", () => {
           deleteComment(postId, commentData.id);
@@ -258,15 +252,15 @@ document.querySelectorAll(".comment-form").forEach((form) => {
 });
 
 async function deleteComment(postId, commentId) {
+  const accessToken = localStorage.getItem("accessToken");
+  const apiKey = localStorage.getItem("apiKey");
+
   try {
     const response = await fetch(
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}/comment/${commentId}`,
       {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          "X-Noroff-API-Key": localStorage.getItem("apiKey"),
-        },
+        headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
       }
     );
 
