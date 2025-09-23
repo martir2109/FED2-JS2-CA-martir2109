@@ -1,3 +1,7 @@
+/**
+ * Create the footer HTML.
+ * @returns {string} The HTML for footer.
+ */
 function createFooter() {
   return `<footer class="main-footer">
       <div class="footer-container">
@@ -44,15 +48,14 @@ function createFooter() {
     </footer>`;
 }
 
+/**
+ * Load the footer HTML into the existing #footer-container element on the page.
+ */
 function loadFooter() {
-  let footerContainer = document.getElementById("footer-container");
-
-  if (!footerContainer) {
-    footerContainer = document.createElement("div");
-    footerContainer.id = "footer-container";
-    document.body.appendChild(footerContainer);
+  const footerContainer = document.getElementById("footer-container");
+  if (footerContainer) {
+    footerContainer.innerHTML = createFooter();
   }
-  footerContainer.innerHTML = createFooter();
 }
 
 document.addEventListener("DOMContentLoaded", loadFooter);
