@@ -14,7 +14,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 ![Preview of Posty website](./public/images/website-preview.png)
 
-## Technologies used
+## 🛠️ Technologies used
 
 - HTML5
 - CSS3
