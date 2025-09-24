@@ -152,3 +152,33 @@ export const API_Headers_accesstoken_apikey = (accessToken, apiKey) => ({
 export const API_Headers_content = () => ({
   "Content-Type": "application/json",
 });
+
+/**
+ * Retrive authentication credentials from localStorage
+ * @returns {{accessToken: string|null, apiKey: string|null}}
+ * An object containing the user's access token and API key, or null values if not found.
+ */
+export function getAuthenticationCredentials() {
+  const accessToken = localStorage.getItem("accessToken");
+  const apiKey = localStorage.getItem("apiKey");
+  return { accessToken, apiKey };
+}
+
+/**
+ * Retrives the stored username from localStorage.
+ * If no username is stored it defaults to "User".
+ * @returns {object} An object containting the username.
+ */
+export function getUserName() {
+  const userName = localStorage.getItem("userName") || "User";
+  return { userName };
+}
+
+/**
+ * Retrives the stored user data from localStorage.
+ * @returns {object} An object containgt the raw user data string.
+ */
+export function getUser() {
+  const userDataString = localStorage.getItem("user");
+  return { userDataString };
+}
