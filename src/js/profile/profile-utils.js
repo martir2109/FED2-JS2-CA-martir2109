@@ -92,3 +92,28 @@ export async function loadUserPostsData(accessToken, apiKey, userName) {
   const result = await response.json();
   return result.data || [];
 }
+
+/**
+ * Returns the main elements for a user profile page.
+ * For both the logged-in user's profile and other users' profiles.
+ * @returns {object} An object containing:
+ *   - postsContainer: The container element for user posts.
+ *   - emailContainer: The paragraph element displaying the user's email.
+ *   - followersContainer: The paragraph element displaying the number of followers.
+ *   - followingContainer: The paragraph element displaying the number of followings.
+ *   - avatar: The element for the user's avatar.
+ */
+export function getUserProfileElements() {
+  const postsContainer = document.querySelector(".posts-container");
+  const emailContainer = document.querySelector(".email-container p");
+  const followersContainer = document.querySelector(".followers-container p");
+  const followingContainer = document.querySelector(".following-container p");
+  const avatar = document.getElementById("avatar");
+  return {
+    postsContainer,
+    emailContainer,
+    followersContainer,
+    followingContainer,
+    avatar,
+  };
+}
