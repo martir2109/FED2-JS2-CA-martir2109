@@ -2,6 +2,8 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
+  getUserName,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -11,11 +13,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   const followersOutputContainer = document.getElementById(
     "followers-output-container"
   );
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
-  const loggedInUser = localStorage.getItem("userName");
+
+  const { accessToken, apiKey } = getAuthenticationCredentials();
+  const { userName } = getUserName();
+
   const profileName =
-    new URLSearchParams(window.location.search).get("name") || loggedInUser;
+    new URLSearchParams(window.location.search).get("name") || userName;
 
   await loadUserProfile();
 

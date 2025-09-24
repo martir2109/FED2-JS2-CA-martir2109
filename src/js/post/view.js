@@ -5,6 +5,7 @@ import {
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
 } from "../utils.js";
 
 const currentUser = JSON.parse(localStorage.getItem("user")) || {};
@@ -19,8 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const accessToken = localStorage.getItem("accessToken");
-    const apiKey = localStorage.getItem("apiKey");
+    const { accessToken, apiKey } = getAuthenticationCredentials();
     const editLink = document.getElementById("edit-link");
 
     const response = await fetch(
@@ -186,8 +186,7 @@ document.querySelectorAll(".comment-form").forEach((form) => {
     const postId = new URLSearchParams(window.location.search).get("id");
     const commentText = event.target.querySelector("textarea").value.trim();
     const maxLength = 200;
-    const accessToken = localStorage.getItem("accessToken");
-    const apiKey = localStorage.getItem("apiKey");
+    const { accessToken, apiKey } = getAuthenticationCredentials();
 
     clearError("comment");
 
@@ -252,8 +251,7 @@ document.querySelectorAll(".comment-form").forEach((form) => {
 });
 
 async function deleteComment(postId, commentId) {
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
+  const { accessToken, apiKey } = getAuthenticationCredentials();
 
   try {
     const response = await fetch(

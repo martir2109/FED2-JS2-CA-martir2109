@@ -6,6 +6,7 @@ import {
   API_ENDPOINTS,
   attachInputListeners,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,8 +18,7 @@ const createPostForm = document.getElementById("create-form");
 createPostForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
+  const { accessToken, apiKey } = getAuthenticationCredentials();
 
   if (!accessToken) {
     alert("You must be logged in to create a post.");

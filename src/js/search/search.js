@@ -3,6 +3,7 @@ import {
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -13,8 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const searchOutputContainer = document.getElementById(
     "search-output-container"
   );
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
+  const { accessToken, apiKey } = getAuthenticationCredentials();
   const postsContainer = document.getElementById("explore-posts-container");
 
   await loadExplorePosts();

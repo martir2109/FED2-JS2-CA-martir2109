@@ -4,12 +4,14 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
+  getUserName,
+  getUser,
 } from "../utils.js";
 
-const accessToken = localStorage.getItem("accessToken");
-const userName = localStorage.getItem("userName");
-const apiKey = localStorage.getItem("apiKey");
-const userDataString = localStorage.getItem("user");
+const { accessToken, apiKey } = getAuthenticationCredentials();
+const { userName } = getUserName();
+const { userDataString } = getUser();
 
 document.addEventListener("DOMContentLoaded", function () {
   loadUserSettings();

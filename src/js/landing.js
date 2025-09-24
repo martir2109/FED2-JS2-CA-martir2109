@@ -2,15 +2,13 @@ import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
+  getAuthenticationCredentials,
+  getUserName,
 } from "./utils.js";
 
 function isUserLoggedIn() {
-  const accessToken = localStorage.getItem("accessToken");
+  const { accessToken } = getAuthenticationCredentials();
   return accessToken !== null;
-}
-
-function getUserName() {
-  return localStorage.getItem("userName") || "User";
 }
 
 function createLoggedOutContent() {
@@ -33,7 +31,7 @@ function createLoggedOutContent() {
 }
 
 function createLoggedInContent() {
-  const userName = getUserName();
+  const { userName } = getUserName();
   return `
     <div class="feed-container">
     <div class="welcome-back-container">
@@ -60,11 +58,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function loadRecentPosts() {
-    const accessToken = localStorage.getItem("accessToken");
+    const { accessToken, apiKey } = getAuthenticationCredentials();
+    const { userName } = getUserName();
     const container = document.getElementById("feed-posts");
     const feedContainer = document.querySelector(".feed-posts-container");
-    const apiKey = localStorage.getItem("apiKey");
-    const userName = localStorage.getItem("userName");
 
     if (!accessToken || !container) return;
 

@@ -2,18 +2,22 @@ import {
   displayPosts,
   loadUserProfileData,
   loadUserPostsData,
+  getUserProfileElements,
 } from "./profile-utils.js";
 
-document.addEventListener("DOMContentLoaded", async function () {
-  const postsContainer = document.querySelector(".posts-container");
-  const emailContainer = document.querySelector(".email-container p");
-  const followersContainer = document.querySelector(".followers-container p");
-  const followingContainer = document.querySelector(".following-container p");
-  const avatar = document.getElementById("avatar");
+import { getAuthenticationCredentials, getUserName } from "../utils.js";
 
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
-  const userName = localStorage.getItem("userName");
+document.addEventListener("DOMContentLoaded", async function () {
+  const {
+    postsContainer,
+    emailContainer,
+    followersContainer,
+    followingContainer,
+    avatar,
+  } = getUserProfileElements();
+
+  const { accessToken, apiKey } = getAuthenticationCredentials();
+  const { userName } = getUserName();
 
   let allPosts = [];
   let displayedPosts = [];

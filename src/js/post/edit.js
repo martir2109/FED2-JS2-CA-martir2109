@@ -7,6 +7,8 @@ import {
   attachInputListeners,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
+  getAuthenticationCredentials,
+  getUserName,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -20,9 +22,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "/index.html";
     return;
   }
-  const accessToken = localStorage.getItem("accessToken");
-  const userName = localStorage.getItem("userName");
-  const apiKey = localStorage.getItem("apiKey");
+  const { userName } = getUserName();
+  const { accessToken, apiKey } = getAuthenticationCredentials();
 
   if (!accessToken || !userName) {
     alert("You must be logged in.");

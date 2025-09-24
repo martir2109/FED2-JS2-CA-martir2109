@@ -2,28 +2,33 @@ import {
   displayPosts,
   loadUserProfileData,
   loadUserPostsData,
-} from "../profile/profile-utils.js";
+  getUserProfileElements,
+} from "./profile-utils.js";
 
 import {
   API_BASE_URL,
   API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
+  getAuthenticationCredentials,
+  getUserName,
 } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-  const postsContainer = document.querySelector(".posts-container");
   const nameContainer = document.querySelector(".header h1");
-  const emailContainer = document.querySelector(".email-container p");
-  const followersContainer = document.querySelector(".followers-container p");
-  const followingContainer = document.querySelector(".following-container p");
   const followBtn = document.getElementById("follow-btn");
   const followersLink = document.querySelector(".followers-link");
   const followingLink = document.querySelector(".following-link");
-  const avatar = document.getElementById("avatar");
+  const {
+    postsContainer,
+    emailContainer,
+    followersContainer,
+    followingContainer,
+    avatar,
+  } = getUserProfileElements();
 
-  const accessToken = localStorage.getItem("accessToken");
-  const apiKey = localStorage.getItem("apiKey");
-  const loggedInUser = localStorage.getItem("userName");
+  const { accessToken, apiKey } = getAuthenticationCredentials();
+  const { userName } = getUserName();
+
   const profileName = new URLSearchParams(window.location.search).get("name");
 
   if (!profileName) return console.error("No profile name specified in URL");
@@ -53,11 +58,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (followingLink)
         followingLink.href = `../../profile/following/index.html?name=${profileName}`;
 
-      if (profileName === loggedInUser && followBtn)
+      if (profileName === userName && followBtn)
         followBtn.style.display = "none";
       else if (followBtn) followBtn.style.display = "block";
 
-      isFollowing = userProfile.followers?.some((f) => f.name === loggedInUser);
+      isFollowing = userProfile.followers?.some((f) => f.name === userName);
       updateFollowButton();
       setupFollowButton();
     } catch (error) {
