@@ -24,13 +24,8 @@
   color: var(--primary-color);
 }
 
-.welcome-back-container h1 {
-  font-size: clamp(1.8rem, 5vw, 2.25rem);
-  color: var(--primary-color);
-}
-
 .welcome-header-container {
-  width: 100%;
+  width: 90%;
   padding: 20px 0;
 }
 
@@ -235,6 +230,13 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+  }
+
+  .typewriter h1 {
+    animation: none;
+    white-space: normal;
+    border-right: none;
+    overflow-wrap: break-word;
   }
 
   /* Logged in */
