@@ -160,8 +160,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             <h4>${post.author?.name || "No username"}</h4>
             ${
               post.media?.url
-                ? `<img src="${post.media.url}" alt="Post media" class="explore-post-media">`
-                : `<img src="../../public/images/no image - default image.jpg" alt="Default image" class="explore-post-media">`
+                ? `<img src="${post.media.url}" alt="Post media" class="explore-post-media" loading="lazy">`
+                : `<img src="../../public/images/no image - default image.jpg" alt="Default image" class="explore-post-media" loading="lazy">`
             }
             <p class="post-body">${
               post.body ? post.body.substring(0, 50) + "..." : ""

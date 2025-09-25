@@ -20,8 +20,8 @@ export function displayPosts(postsContainer, posts) {
           <div class="post">
             ${
               post.media?.url
-                ? `<img src="${post.media.url}" alt="Post media" class="post-image">`
-                : `<img src="../../public/images/no image - default image.jpg" alt="Default image" class="post-media">`
+                ? `<img src="${post.media.url}" alt="Post media" class="post-image" loading="lazy">`
+                : `<img src="../../public/images/no image - default image.jpg" alt="Default image" class="post-media" loading="lazy">`
             }
           </div>
         </a>
