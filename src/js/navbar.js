@@ -16,7 +16,7 @@ function createNavbar() {
           </div>
           </a>
           
-          <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+          <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()" aria-label="Open and close navigation menu">
             <div class="container">
               <div class="bar1"></div>
               <div class="bar2"></div>
