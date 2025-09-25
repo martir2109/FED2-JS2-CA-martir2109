@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         profileName
       );
 
-      nameContainer.textContent = userProfile.name || "Unknown";
+      nameContainer.textContent = "@" + userProfile.name || "Unknown";
       emailContainer.textContent = userProfile.email || "-";
       followersContainer.textContent = userProfile._count?.followers || 0;
       followingContainer.textContent = userProfile._count?.following || 0;

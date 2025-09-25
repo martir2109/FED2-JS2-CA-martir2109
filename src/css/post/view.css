@@ -19,6 +19,13 @@
   color: var(--black);
   cursor: pointer;
 }
+.username-container a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 50px;
+  padding: 10px 20px;
+}
 
 .post-container {
   width: 80%;
@@ -54,6 +61,8 @@
 
 .post-image {
   width: 100%;
+  height: auto;
+  border: 1px solid var(--grey);
 }
 
 .body {
@@ -128,6 +137,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
+  font-size: clamp(0.8rem, 5vw, 1rem);
 }
 
 .comments-list {
@@ -169,7 +179,7 @@
   margin: 0 auto;
   cursor: pointer;
   border-radius: 10px;
-  font-size: clamp(0.8rem, 5vw, 1rem);
+  font-size: clamp(0.8rem, 5vw, 1.1rem);
   font-weight: normal;
   color: var(--white);
   border: none;
@@ -192,6 +202,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  word-break: break-all;
 }
 
 .comment-main {

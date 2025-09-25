@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       postData.author?.name || postData.author?.username || "Unknown Author";
 
     const usernameElement = document.querySelector(".username");
-    usernameElement.innerHTML = `<a href="../../profile/view-profile/index.html?name=${authorName}">${authorName}</a>`;
+    usernameElement.innerHTML = `<a href="../../profile/view-profile/index.html?name=${authorName}">@${authorName}</a>`;
 
     document.querySelector(".post-title").textContent =
       postData.title || "No Title";
