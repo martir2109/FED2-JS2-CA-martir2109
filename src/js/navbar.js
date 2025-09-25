@@ -82,7 +82,7 @@ function createNavbar() {
 function logout() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userName");
-  window.location.href = "./index.html";
+  window.location.href = "/index.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
