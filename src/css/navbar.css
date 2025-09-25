@@ -28,6 +28,8 @@
   display: none;
   position: absolute;
   right: 0;
+  background-color: var(--white);
+  border: none;
 }
 
 .nav-logo {
@@ -97,8 +99,8 @@
 
   .topnav .icon {
     display: block;
-    margin-top: 10px;
-    margin-right: 5px;
+    position: relative;
+    margin: 0 20px 0 auto;
   }
 
   .topnav a.icon {
@@ -109,6 +111,7 @@
     position: fixed;
     flex-direction: column;
     height: auto;
+    align-items: flex-end;
   }
 
   .topnav.responsive .nav-logo {

@@ -16,13 +16,13 @@ function createNavbar() {
           </div>
           </a>
           
-          <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()" aria-label="Open and close navigation menu">
+          <button class="icon" onclick="toggleMobileMenu()" aria-label="Open and close navigation menu">
             <div class="container">
               <div class="bar1"></div>
               <div class="bar2"></div>
               <div class="bar3"></div>
             </div>
-          </a>
+          </button>
           
           <div class="nav-links">  
             <a href="/index.html"><i class="bi bi-house-door" title="Home"></i>
@@ -54,13 +54,13 @@ function createNavbar() {
           </div>
           </a>
           
-          <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()" aria-label="Open and close navigation menu">
+          <button class="icon" onclick="toggleMobileMenu()" aria-label="Open and close navigation menu">
             <div class="container">
               <div class="bar1"></div>
               <div class="bar2"></div>
               <div class="bar3"></div>
             </div>
-          </a>
+          </button>
           
           <div class="nav-links">  
             <a href="/index.html"><i class="bi bi-house-door" title="Home"></i>
