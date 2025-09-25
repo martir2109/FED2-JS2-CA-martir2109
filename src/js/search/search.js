@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadExplorePosts() {
     try {
       const response = await fetch(
-        `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}?_author=true&limit=20`,
+        `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}?_author=true&limit=24`,
         {
           method: "GET",
           headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
