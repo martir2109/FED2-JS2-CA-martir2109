@@ -131,6 +131,7 @@ body {
   right: 20px;
   cursor: pointer;
 }
+
 .to-top a {
   text-decoration: none;
 }
@@ -138,6 +139,7 @@ body {
 .bi-arrow-up-circle-fill {
   font-size: clamp(2rem, 5vw, 2.5rem);
   color: var(--primary-color);
+  transition: color 0.3s;
 }
 
 .bi-arrow-up-circle-fill:hover {
