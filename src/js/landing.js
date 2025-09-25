@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (allPosts.length > 0) {
         allPosts.sort((a, b) => new Date(b.created) - new Date(a.created));
 
-        displayRecentPosts(allPosts.slice(0, 9));
+        displayRecentPosts(allPosts);
       } else {
         feedContainer.innerHTML = `
         <div class="landingpage-message-container">
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         : `<img src="../../public/images/no image - default image.jpg" class="post-media" loading="lazy">`
     }
     <p class="post-body">${
-      post.body ? post.body.substring(0, 50) + "..." : ""
+      post.body ? post.body.substring(0, 30) + "..." : ""
     }</p>
     </div>
     </a>
