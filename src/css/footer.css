@@ -37,6 +37,7 @@
 }
 
 .links-container a {
+  overflow-wrap: break-word;
   text-decoration: none;
 }
 
