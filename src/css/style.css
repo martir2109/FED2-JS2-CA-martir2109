@@ -138,7 +138,7 @@ body {
 
 .bi-arrow-up-circle-fill {
   font-size: clamp(2rem, 5vw, 2.5rem);
-  color: var(--primary-color);
+  color: var(--grey);
   transition: color 0.3s;
 }
 
