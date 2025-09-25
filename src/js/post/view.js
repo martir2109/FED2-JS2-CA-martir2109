@@ -13,6 +13,16 @@ const currentUser = JSON.parse(localStorage.getItem("user")) || {};
 const currentUserName =
   currentUser.name || currentUser.username || currentUser.email || "User";
 
+/* Skeleton loader */
+window.addEventListener("load", () => {
+  const skeleton = document.getElementById("skeleton-wrapper");
+  if (skeleton) {
+    setTimeout(() => {
+      skeleton.style.display = "none";
+    }, 300);
+  }
+});
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const postId = new URLSearchParams(window.location.search).get("id");

@@ -218,6 +218,76 @@
   font-size: clamp(0.8rem, 5vw, 1rem);
 }
 
+/* Skeleton loader */
+/* Skeleton base style */
+.skeleton-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  z-index: 1000;
+}
+
+.post-skeleton {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 500px;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 37%, #e0e0e0 63%);
+  background-size: 220% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 6px;
+}
+
+/* Different skeleton shapes */
+.skeleton-username,
+.skeleton-title,
+.skeleton-image,
+.skeleton-body,
+.skeleton-comments {
+  width: 100%;
+}
+
+.skeleton-username {
+  height: 44px;
+  margin-bottom: 16px;
+}
+
+.skeleton-title {
+  height: 34px;
+  margin-bottom: 16px;
+}
+
+.skeleton-image {
+  height: 450px;
+  margin-bottom: 16px;
+}
+
+.skeleton-body {
+  height: 100px;
+  margin-bottom: 16px;
+}
+
+.skeleton-comments {
+  height: 100px;
+  margin-top: 12px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .back-edit-container,
   .back-container {
