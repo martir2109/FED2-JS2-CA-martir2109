@@ -110,7 +110,7 @@ function logout() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userName");
   localStorage.removeItem("user");
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
 
 window.logout = logout;
