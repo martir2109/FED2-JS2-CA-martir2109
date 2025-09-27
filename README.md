@@ -22,6 +22,19 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 - Fetch API
 - Netlify (deploymet)
 
+## 🗂️ Project structure
+
+├── auth/ # Login and register HTML files
+├── footer-links/ # Footer links HTML files
+├── post/ # Post HTML files
+├── profile/ # Profile HTML files
+├── public/ # Static assets (images, favicon, etc.)
+├── search/ # Search HTML file
+├── settings/ # Settings HTML files
+├── src/ # CSS and JavaScript
+├── README.md
+└── index.html
+
 ## 📋 What this assignment is about
 
 I was given the task to create a socail media application. We were required allow the users to perfom CRUD operatiosns, meaning Create, Read, Update and Delete on their posts.
