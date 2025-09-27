@@ -25,14 +25,14 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 ## 🗂️ Project structure
 
 ```
-├── auth/ # Login and register HTML files
-├── footer-links/ # Footer links HTML files
-├── post/ # Post HTML files
-├── profile/ # Profile HTML files
-├── public/ # Static assets (images, favicon, etc.)
-├── search/ # Search HTML file
-├── settings/ # Settings HTML files
-├── src/ # CSS and JavaScript
+├── auth/ - Login and register HTML files
+├── footer-links/ - Footer links HTML files
+├── post/ - Post HTML files
+├── profile/ - Profile HTML files
+├── public/ - Static assets (images, favicon, etc.)
+├── search/ - Search HTML file
+├── settings/ - Settings HTML files
+├── src/ - CSS and JavaScript
 ├── README.md
 └── index.html
 ```
