@@ -20,7 +20,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 - CSS3
 - JavaScript Vanilla (ES6 Modules)
 - Fetch API
-- Netlify (deploymet)
+- Netlify (deployment)
 
 ## 🗂️ Project structure
 
