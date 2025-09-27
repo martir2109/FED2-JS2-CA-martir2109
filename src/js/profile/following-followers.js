@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         aHrefLink.href = `../../profile/view-profile/index.html?name=${profile.name}`;
         aHrefLink.innerHTML = `
         <div class="followers-profile">
-        <div>
           <p>Username:</p>
           <p class="username">${profile.name || "Unknown user"}</p>
         </div>
