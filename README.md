@@ -24,6 +24,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 ## 🗂️ Project structure
 
+```
 ├── auth/ # Login and register HTML files
 ├── footer-links/ # Footer links HTML files
 ├── post/ # Post HTML files
@@ -34,6 +35,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 ├── src/ # CSS and JavaScript
 ├── README.md
 └── index.html
+```
 
 ## 📋 What this assignment is about
 
