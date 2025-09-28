@@ -6,12 +6,12 @@ import {
 } from "./profile-utils.js";
 
 import {
-  API_BASE_URL,
-  API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   getAuthenticationCredentials,
   getUserName,
 } from "../utils.js";
+
+import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   const nameContainer = document.querySelector(".header h1");

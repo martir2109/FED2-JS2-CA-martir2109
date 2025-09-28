@@ -1,15 +1,16 @@
 import {
   showError,
   clearError,
-  API_BASE_URL,
-  API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
   getAuthenticationCredentials,
 } from "../utils.js";
 
+import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
+
 const { accessToken, apiKey } = getAuthenticationCredentials();
-const currentUser = JSON.parse(localStorage.getItem("user")) || {};
+const currentUserRaw = JSON.parse(localStorage.getItem("user")) || {};
+const currentUser = currentUserRaw.data || currentUserRaw;
 const currentUserName =
   currentUser.name || currentUser.username || currentUser.email || "User";
 

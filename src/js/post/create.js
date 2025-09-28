@@ -2,12 +2,12 @@ import {
   showError,
   clearError,
   Count,
-  API_BASE_URL,
-  API_ENDPOINTS,
   attachInputListeners,
   API_Headers_accesstoken_content_apikey,
   getAuthenticationCredentials,
 } from "../utils.js";
+
+import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   new Count();

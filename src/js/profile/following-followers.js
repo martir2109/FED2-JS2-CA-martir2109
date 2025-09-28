@@ -1,10 +1,10 @@
 import {
-  API_BASE_URL,
-  API_ENDPOINTS,
   API_Headers_accesstoken_content_apikey,
   getAuthenticationCredentials,
   getUserName,
 } from "../utils.js";
+
+import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   const followingOutputContainer = document.getElementById(

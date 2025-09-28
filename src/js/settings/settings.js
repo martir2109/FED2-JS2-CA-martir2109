@@ -1,13 +1,13 @@
 import {
   showError,
   clearError,
-  API_BASE_URL,
-  API_ENDPOINTS,
   API_Headers_accesstoken_content_apikey,
   getAuthenticationCredentials,
   getUserName,
   getUser,
 } from "../utils.js";
+
+import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
 
 const { accessToken, apiKey } = getAuthenticationCredentials();
 const { userName } = getUserName();
@@ -128,7 +128,7 @@ async function updateProfileHandler() {
   }
 }
 
-//Refresh the user data and return the lastes user profile data from the API.
+//Refresh the user data and return the lastest user profile data from the API.
 async function refreshUserdata() {
   const response = await fetch(
     `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
