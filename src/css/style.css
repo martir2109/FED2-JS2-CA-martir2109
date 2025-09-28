@@ -9,7 +9,6 @@ html {
   --black: #000000;
   --grey: #6c6c6c;
   --blue: #014b85;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .title {
@@ -42,14 +41,11 @@ p {
   color: var(--black);
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-container {
@@ -144,6 +140,13 @@ body {
 
 .bi-arrow-up-circle-fill:hover {
   color: var(--secondary-color);
+}
+
+.note {
+  font-size: clamp(0.9rem, 5vw, 1rem);
+  font-style: italic;
+  color: red;
+  overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 750px) {
