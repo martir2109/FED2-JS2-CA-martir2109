@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     followersContainer,
     followingContainer,
     avatar,
+    bioContainer,
   } = getUserProfileElements();
 
   const { accessToken, apiKey } = getAuthenticationCredentials();
@@ -33,6 +34,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (avatar && userProfile.avatar) {
         avatar.src = userProfile.avatar.url;
         avatar.alt = userProfile.avatar.alt || "User avatar";
+      }
+
+      if (bioContainer) {
+        bioContainer.textContent = userProfile.bio || "No bio yet.";
       }
 
       if (emailContainer) emailContainer.textContent = userProfile.email || "";

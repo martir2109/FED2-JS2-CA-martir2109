@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     followersContainer,
     followingContainer,
     avatar,
+    bioContainer,
   } = getUserProfileElements();
 
   const { accessToken, apiKey } = getAuthenticationCredentials();
@@ -53,6 +54,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         avatar.alt = userProfile.avatar.alt || "User avatar";
       }
 
+      if (bioContainer) {
+        bioContainer.textContent = userProfile.bio || "No bio yet.";
+      }
       if (followersLink)
         followersLink.href = `../../profile/followers/index.html?name=${profileName}`;
       if (followingLink)
