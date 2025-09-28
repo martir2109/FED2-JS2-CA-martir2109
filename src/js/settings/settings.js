@@ -15,10 +15,10 @@ const { userDataString } = getUser();
 
 document.addEventListener("DOMContentLoaded", function () {
   loadUserSettings();
-  const editAvatarBtn = document.getElementById("edit-avatar-btn");
+  const editProfileBtn = document.getElementById("edit-profile-btn");
 
-  if (editAvatarBtn) {
-    editAvatarBtn.addEventListener("click", updateAvatarHandler);
+  if (editProfileBtn) {
+    editProfileBtn.addEventListener("click", updateProfileHandler);
   }
 });
 
@@ -44,9 +44,16 @@ function loadUserFormValues(userProfile) {
   const emailField = document.getElementById("email");
   const passwordField = document.getElementById("password");
   const avatarField = document.getElementById("avatar");
+  const bioField = document.getElementById("bio");
 
   if (avatarField && userProfile.avatar) {
     avatarField.value = userProfile.avatar.url || "";
+  }
+
+  if (bioField) {
+    bioField.value = userProfile.bio || "";
+
+    if (!userProfile.bio) bioField.placeholder = "No bio yet";
   }
 
   if (nameField) {
@@ -62,31 +69,42 @@ function loadUserFormValues(userProfile) {
   }
 }
 
-async function updateAvatarHandler() {
+async function updateProfileHandler() {
   const avatarField = document.getElementById("avatar");
+  const bioField = document.getElementById("bio");
+
   const avatar = avatarField.value.trim();
+  const bio = bioField.value.trim();
+
   let hasError = false;
 
-  if (!avatar || !avatar.startsWith("http")) {
-    showError(
-      "avatar",
-      "Please enter a valid image URL that starts with http or https."
-    );
+  if (avatar && !avatar.startsWith("http")) {
+    showError("avatar", "Avatar URL must start with http or https.");
     hasError = true;
   } else {
     clearError("avatar");
   }
 
+  if (bio.length > 100) {
+    showError("bio", "Bio cannot be longer than 100 characters.");
+    hasError = true;
+  } else {
+    clearError("bio");
+  }
+
   if (hasError) return;
 
+  const updateData = {};
+  if (avatar) updateData.avatar = { url: avatar };
+  if (bio) updateData.bio = bio;
+
   try {
-    const updateAvatar = { avatar: { url: avatar } };
     const response = await fetch(
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
       {
         method: "PUT",
         headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
-        body: JSON.stringify(updateAvatar),
+        body: JSON.stringify(updateData),
       }
     );
 
@@ -98,12 +116,37 @@ async function updateAvatarHandler() {
       throw new Error(errorMessage);
     }
 
-    alert("Avatar updated!");
-    window.location.href = "/index.html";
+    const updatedProfile = await refreshUserdata();
+
+    localStorage.setItem("user", JSON.stringify({ data: updatedProfile }));
+
+    if (updatedProfile) loadUserFormValues(updatedProfile);
+
+    alert("Profile updated successfully!");
+    window.location.href = "./index.html";
   } catch (error) {
-    console.error("Error updating avatar: ", error);
-    alert("Failed to update the avatar");
+    console.error("Error updating profile:", error);
+    alert("Failed to update profile.");
   }
+}
+
+async function refreshUserdata() {
+  const response = await fetch(
+    `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
+    {
+      method: "GET",
+      headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const errorMessage = data.errors?.[0]?.message || `HTTP ${response.status}`;
+    throw new Error(errorMessage);
+  }
+
+  return data.data;
 }
 
 function logout() {
