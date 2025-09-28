@@ -128,6 +128,7 @@ async function updateProfileHandler() {
   }
 }
 
+//Refresh the user data and return the lastes user profile data from the API.
 async function refreshUserdata() {
   const response = await fetch(
     `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
