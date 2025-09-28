@@ -109,11 +109,14 @@ export function getUserProfileElements() {
   const followersContainer = document.querySelector(".followers-container p");
   const followingContainer = document.querySelector(".following-container p");
   const avatar = document.getElementById("avatar");
+  const bioContainer = document.getElementById("bio");
+
   return {
     postsContainer,
     emailContainer,
     followersContainer,
     followingContainer,
     avatar,
+    bioContainer,
   };
 }
