@@ -1,5 +1,8 @@
-import { API_Headers_accesstoken_content_apikey } from "../utils.js";
-import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_content_apikey,
+} from "../apiConfig.js";
 
 /**
  * Display posts inside the postContainer

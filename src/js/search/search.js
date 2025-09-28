@@ -1,10 +1,11 @@
+import { getAuthenticationCredentials } from "../utils.js";
+
 import {
+  API_BASE_URL,
+  API_ENDPOINTS,
   API_Headers_accesstoken_apikey,
   API_Headers_accesstoken_content_apikey,
-  getAuthenticationCredentials,
-} from "../utils.js";
-
-import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
+} from "../apiConfig.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   let allPosts = [];

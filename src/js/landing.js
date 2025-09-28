@@ -1,10 +1,10 @@
-import {
-  API_Headers_accesstoken_apikey,
-  getAuthenticationCredentials,
-  getUserName,
-} from "./utils.js";
+import { getAuthenticationCredentials, getUserName } from "./utils.js";
 
-import { API_BASE_URL, API_ENDPOINTS } from "./apiConfig.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_apikey,
+} from "./apiConfig.js";
 
 function isUserLoggedIn() {
   const { accessToken } = getAuthenticationCredentials();

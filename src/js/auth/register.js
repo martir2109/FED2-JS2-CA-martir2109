@@ -1,11 +1,10 @@
-import {
-  showError,
-  clearError,
-  togglePassword,
-  API_Headers_content,
-} from "../utils.js";
+import { showError, clearError, togglePassword } from "../utils.js";
 
-import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_content,
+} from "../apiConfig.js";
 
 /**
  * Registers a new user with name, email and password.

@@ -1,12 +1,15 @@
 import {
   showError,
   clearError,
-  API_Headers_accesstoken_apikey,
-  API_Headers_accesstoken_content_apikey,
   getAuthenticationCredentials,
 } from "../utils.js";
 
-import { API_BASE_URL, API_ENDPOINTS } from "../apiConfig.js";
+import {
+  API_BASE_URL,
+  API_ENDPOINTS,
+  API_Headers_accesstoken_apikey,
+  API_Headers_accesstoken_content_apikey,
+} from "../apiConfig.js";
 
 const { accessToken, apiKey } = getAuthenticationCredentials();
 const currentUserRaw = JSON.parse(localStorage.getItem("user")) || {};
