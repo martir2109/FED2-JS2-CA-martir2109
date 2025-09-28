@@ -210,6 +210,11 @@
   width: 100%;
 }
 
+.comment-published {
+  color: var(--grey);
+  font-size: clamp(0.7rem, 5vw, 0.9rem);
+}
+
 .post-update-container {
   margin-top: 40px;
   text-align: left;

@@ -73,6 +73,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                   </div>
                 </div>
+                <p class="comment-published" id="comment-published">Published: ${new Date(
+                  comment.created
+                ).toLocaleDateString()}
+                </p>
               </div>
             </li>
           `;
