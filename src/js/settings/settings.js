@@ -116,14 +116,9 @@ async function updateProfileHandler() {
       throw new Error(errorMessage);
     }
 
-    const currentUser = JSON.parse(localStorage.getItem("user")) || {};
-    const updatedProfile = {
-      ...currentUser.data,
-      ...updateData,
-    };
-    loadUserFormValues(updatedProfile);
-
+    const updatedProfile = await refreshUserdata();
     localStorage.setItem("user", JSON.stringify({ data: updatedProfile }));
+    if (updatedProfile) loadUserFormValues(updatedProfile);
 
     alert("Profile updated successfully!");
     window.location.href = "./index.html";
@@ -131,6 +126,25 @@ async function updateProfileHandler() {
     console.error("Error updating profile:", error);
     alert("Failed to update profile.");
   }
+}
+
+async function refreshUserdata() {
+  const response = await fetch(
+    `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}`,
+    {
+      method: "GET",
+      headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const errorMessage = data.errors?.[0]?.message || `HTTP ${response.status}`;
+    throw new Error(errorMessage);
+  }
+
+  return data.data;
 }
 
 function logout() {
