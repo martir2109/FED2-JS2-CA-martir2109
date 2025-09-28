@@ -121,7 +121,9 @@ async function updateProfileHandler() {
       ...currentUser.data,
       ...updateData,
     };
-    localStorage.setItem("user", JSON.stringify(updatedProfile));
+    loadUserFormValues(updatedProfile);
+
+    localStorage.setItem("user", JSON.stringify({ data: updatedProfile }));
 
     alert("Profile updated successfully!");
     window.location.href = "./index.html";
