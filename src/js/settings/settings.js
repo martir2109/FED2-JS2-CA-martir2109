@@ -116,17 +116,12 @@ async function updateProfileHandler() {
       throw new Error(errorMessage);
     }
 
-    loadUserFormValues({
-      avatar: updateData.avatar,
-      bio: updateData.bio,
-    });
-
     const currentUser = JSON.parse(localStorage.getItem("user")) || {};
-    currentUser.data = {
+    const updatedProfile = {
       ...currentUser.data,
       ...updateData,
     };
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    localStorage.setItem("user", JSON.stringify(updatedProfile));
 
     alert("Profile updated successfully!");
     window.location.href = "./index.html";
