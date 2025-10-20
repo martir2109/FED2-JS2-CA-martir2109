@@ -21,5 +21,9 @@
   "homepage": "https://github.com/martir2109/FED2-JS2-CA-martir2109#readme",
   "devDependencies": {
     "vite": "^7.1.11"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.15",
+    "tailwindcss": "^4.1.15"
   }
 }
