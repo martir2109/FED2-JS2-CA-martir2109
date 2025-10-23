@@ -70,14 +70,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS_FOLLOWING}?_author=true&limit=20`,
         {
           headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-        }
+        },
       );
 
       const ownPostsResponse = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${userName}/posts?_author=true&limit=20`,
         {
           headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-        }
+        },
       );
 
       let allPosts = [];
@@ -108,14 +108,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error(
           "Following posts failed:",
           followingResponse.status,
-          followingResponse.statusText
+          followingResponse.statusText,
         );
       }
       if (!ownPostsResponse.ok) {
         console.error(
           "Own posts failed:",
           ownPostsResponse.status,
-          ownPostsResponse.statusText
+          ownPostsResponse.statusText,
         );
       }
     } catch (error) {
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }</p>
     </div>
     </a>
-    `
+    `,
       )
       .join("");
   }

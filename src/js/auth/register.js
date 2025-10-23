@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (!/^[\w]+$/.test(name)) {
       showError(
         "name",
-        "The name value must not contain punctuation symbols apart from underscore (_)."
+        "The name value must not contain punctuation symbols apart from underscore (_).",
       );
       hasError = true;
     } else {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             password,
             venueManager: false,
           }),
-        }
+        },
       );
 
       const data = await response.json();

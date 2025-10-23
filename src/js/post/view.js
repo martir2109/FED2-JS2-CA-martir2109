@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.POSTS}/${postId}?_author=true&_reactions=true&_comments=true`,
       {
         headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-      }
+      },
     );
 
     const post = await response.json();
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   </div>
                 </div>
                 <p class="comment-published" id="comment-published">Published: ${new Date(
-                  comment.created
+                  comment.created,
                 ).toLocaleDateString()}
                 </p>
               </div>
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const chatButton = document.querySelector(".bi-chat");
     const commentFormContainer = document.querySelector(
-      ".comment-create-container"
+      ".comment-create-container",
     );
     if (chatButton && commentFormContainer) {
       chatButton.addEventListener("click", () => {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const postDate = new Date(postData.created);
     const postUpdate = new Date(postData.updated);
     const postUpdateContainer = document.querySelector(
-      ".post-update-container"
+      ".post-update-container",
     );
     postUpdateContainer.innerHTML = `
       <p class="post-update">Post Published: ${postDate.toLocaleDateString()}</p>
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const reactionButton = reactionContainer.querySelector("i");
 
     const thumbsUpReaction = postData.reactions?.find(
-      (reaction) => reaction.symbol === "👍"
+      (reaction) => reaction.symbol === "👍",
     );
     let reactionCount = thumbsUpReaction?.count || 0;
     reactionCountElement.textContent = reactionCount;
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           {
             method: "PUT",
             headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-          }
+          },
         );
 
         if (!reactResponse.ok) {
@@ -210,7 +210,7 @@ document.querySelectorAll(".comment-form").forEach((form) => {
     if (commentText.length > maxLength) {
       showError(
         "comment",
-        `Comment cannot be longer than ${maxLength} characters.`
+        `Comment cannot be longer than ${maxLength} characters.`,
       );
       return;
     }
@@ -224,7 +224,7 @@ document.querySelectorAll(".comment-form").forEach((form) => {
           method: "POST",
           headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
           body: JSON.stringify({ body: commentText }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -274,7 +274,7 @@ async function deleteComment(postId, commentId) {
       {
         method: "DELETE",
         headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-      }
+      },
     );
 
     if (!response.ok) {

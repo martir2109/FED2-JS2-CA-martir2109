@@ -108,7 +108,7 @@ async function updateProfileHandler() {
         method: "PUT",
         headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         body: JSON.stringify(updateData),
-      }
+      },
     );
 
     const data = await response.json();
@@ -138,7 +138,7 @@ async function refreshUserdata() {
     {
       method: "GET",
       headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
-    }
+    },
   );
 
   const data = await response.json();

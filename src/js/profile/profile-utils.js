@@ -25,7 +25,7 @@ export function displayPosts(postsContainer, posts) {
             }
           </div>
         </a>
-      `
+      `,
         )
         .join("")
     : "<p class='no-posts-text'>No posts found. Create your first post by clicking the plus + icon!</p>";
@@ -48,13 +48,13 @@ export async function loadUserProfileData(accessToken, apiKey, userName) {
     {
       method: "GET",
       headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
-    }
+    },
   );
 
   if (!response.ok) {
     const errorData = await response.json();
     throw new Error(
-      errorData.errors?.[0]?.message || `HTTP ${response.status}`
+      errorData.errors?.[0]?.message || `HTTP ${response.status}`,
     );
   }
 
@@ -79,13 +79,13 @@ export async function loadUserPostsData(accessToken, apiKey, userName) {
     {
       method: "GET",
       headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
-    }
+    },
   );
 
   if (!response.ok) {
     const errorData = await response.json();
     throw new Error(
-      errorData.errors?.[0]?.message || `HTTP ${response.status}`
+      errorData.errors?.[0]?.message || `HTTP ${response.status}`,
     );
   }
 

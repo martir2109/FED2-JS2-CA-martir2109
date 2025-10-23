@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const searchInput = document.getElementById("search-inputfield");
   const searchOutputContainer = document.getElementById(
-    "search-output-container"
+    "search-output-container",
   );
   const { accessToken, apiKey } = getAuthenticationCredentials();
   const postsContainer = document.getElementById("explore-posts-container");
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         method: "GET",
         headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-      }
+      },
     );
     if (!response.ok) return [];
     const data = await response.json();
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         method: "GET",
         headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-      }
+      },
     );
     if (!response.ok) return [];
     const data = await response.json();
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         {
           method: "GET",
           headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         throw new Error(
           errorData.errors
             ? errorData.errors[0].message
-            : `HTTP ${response.status}`
+            : `HTTP ${response.status}`,
         );
       }
 
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }</p>
           </div>
         </a>
-      `
+      `,
       )
       .join("");
   }

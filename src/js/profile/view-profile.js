@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const userProfile = await loadUserProfileData(
         accessToken,
         apiKey,
-        profileName
+        profileName,
       );
 
       nameContainer.textContent = "@" + userProfile.name || "Unknown";
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           {
             method: "PUT",
             headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-          }
+          },
         );
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         isFollowing = !isFollowing;
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       } catch (error) {
         console.error(
           `Failed to ${isFollowing ? "unfollow" : "follow"}:`,
-          error
+          error,
         );
       }
     });

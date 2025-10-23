@@ -8,10 +8,10 @@ import {
 
 document.addEventListener("DOMContentLoaded", async function () {
   const followingOutputContainer = document.getElementById(
-    "following-output-container"
+    "following-output-container",
   );
   const followersOutputContainer = document.getElementById(
-    "followers-output-container"
+    "followers-output-container",
   );
 
   const { accessToken, apiKey } = getAuthenticationCredentials();
@@ -32,22 +32,26 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const followingResponse = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${profileName}?_following=true`,
-        { headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey) }
+        {
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
+        },
       );
 
       const followersResponse = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.SOCIAL.PROFILES}/${profileName}?_followers=true`,
-        { headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey) }
+        {
+          headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
+        },
       );
 
       if (!followingResponse.ok) {
         throw new Error(
-          `Following fetch failed: HTTP ${followingResponse.status}`
+          `Following fetch failed: HTTP ${followingResponse.status}`,
         );
       }
       if (!followersResponse.ok) {
         throw new Error(
-          `Followers fetch failed: HTTP ${followersResponse.status}`
+          `Followers fetch failed: HTTP ${followersResponse.status}`,
         );
       }
       const followingData = await followingResponse.json();
