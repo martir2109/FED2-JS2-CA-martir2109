@@ -1,6 +1,4 @@
-html {
-  scroll-behavior: smooth;
-}
+@import "tailwindcss";
 
 :root {
   --primary-color: #272727;
@@ -11,61 +9,28 @@ html {
   --blue: #014b85;
 }
 
-.title {
-  font-size: clamp(2.5rem, 5vw, 2.668rem);
-  font-weight: 500;
-  color: var(--black);
+@theme {
+  --color-primary: #272727;
+  --color-secondary: #efd09e;
+  --color-blue: #014b85;
+  --text-tiny: clamp(0.9rem, 5vw, 1.1rem);
+  --text-medium: clamp(1rem, 5vw, 1.2rem);
+  --text-huge: clamp(1.8rem, 5vw, 2.125rem);
+  --text-title: clamp(3rem, 5vw, 4.5rem);
+  --text-landing: clamp(1.6rem, 5vw, 1.875rem);
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 750px;
+  --breakpoint-md: 1000px;
+  --breakpoint-lg: 1250px;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  font-size: clamp(1.8rem, 5vw, 2.125rem);
-  font-weight: 500;
-  color: var(--black);
-}
-
-h2 {
-  font-size: clamp(1.6rem, 5vw, 1.875rem);
-  font-weight: 500;
-  color: var(--black);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 5vw, 1.75rem);
-  font-weight: 500;
-  color: var(--black);
-}
-
-p {
-  font-size: clamp(1.3rem, 5vw, 1.5rem);
-  font-weight: normal;
-  color: var(--black);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.header-container {
-  width: 100%;
-  height: fit-content;
-  margin-top: 150px;
-  text-align: center;
-}
-
-.form-label {
-  font-size: clamp(1rem, 5vw, 1.25rem);
-}
-
-.input-error {
+input:invalid:not(:placeholder-shown) {
   border-color: red;
 }
 
-.error-message {
-  color: red;
-  font-size: 0.9rem;
+input:valid {
+  border-color: green;
 }
 
 /* Loader css: https://css-loaders.com/bouncing/ */
@@ -130,27 +95,4 @@ p {
 
 .to-top a {
   text-decoration: none;
-}
-
-.bi-arrow-up-circle-fill {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  color: var(--grey);
-  transition: color 0.3s;
-}
-
-.bi-arrow-up-circle-fill:hover {
-  color: var(--secondary-color);
-}
-
-.note {
-  font-size: clamp(0.9rem, 5vw, 1rem);
-  font-style: italic;
-  color: red;
-  overflow-wrap: break-word;
-}
-
-@media screen and (max-width: 750px) {
-  .header-container {
-    margin-top: 130px;
-  }
 }
