@@ -18,8 +18,8 @@
     <link rel="icon" type="image/png" href="../../public/images/favicon.png" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../src/css/style.css" />
-    <link rel="stylesheet" href="../../src/css/register-login.css" />
+    <link rel="stylesheet" href="../../src/css/tailwind-style.css" />
+    <link rel="stylesheet" href="../../src/css/input.css" />
     <link rel="stylesheet" href="../../src/css/navbar.css" />
     <link rel="stylesheet" href="../../src/css/footer.css" />
 
@@ -36,91 +36,100 @@
     <script src="../../src/js/footer.js"></script>
   </head>
 
-  <body>
+  <body class="h-full font-sans">
     <header>
       <div id="navbar-container"></div>
     </header>
     <div class="loader-container">
       <div class="loader" id="loader"></div>
     </div>
-    <div class="login-register-body">
-      <div class="header-container">
-        <h1>Register</h1>
+
+    <section
+      class="border-box flex min-h-screen w-full flex-col items-center justify-center gap-4"
+    >
+      <div
+        class="mb-10 flex w-full max-w-[600px] flex-col items-center justify-center pr-4 pl-4 sm:mx-auto"
+      >
+        <h1
+          class="text-huge text-center text-2xl leading-9 font-medium tracking-tight text-black"
+        >
+          Register
+        </h1>
       </div>
+      <form
+        class="text-tiny flex h-fit w-[90%] max-w-[600px] flex-col items-start justify-center gap-6 rounded-md border border-gray-400 bg-gray-100 p-8 text-left"
+        id="register-form"
+      >
+        <div class="grid w-full gap-2">
+          <label>Name</label>
 
-      <section class="form-section">
-        <form id="register-form" name="register" class="register-form">
-          <div class="form-item">
-            <input
-              id="name"
-              type="text"
-              class="inputfield"
-              name="name"
-              title="Please enter a username using only letters and numbers"
-              placeholder=" "
-              aria-required="true"
-            />
-            <label for="name" class="form-label">Name*</label>
-            <span id="name-error" class="error-message"></span>
-          </div>
+          <input
+            id="name"
+            type="text"
+            class="h-[50px] w-full rounded-md border border-gray-300 bg-white p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            name="name"
+            title="Please enter a username using only letters and numbers"
+            placeholder="Name"
+            aria-required="true"
+            pattern="[A-Za-z]+"
+            required
+          />
+        </div>
+        <div class="grid w-full gap-2">
+          <label>Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="h-[50px] w-full rounded-md border border-gray-300 bg-white p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="Email"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            required
+          />
+        </div>
 
-          <div class="form-item">
+        <div class="grid w-full gap-2">
+          <label>Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="h-[50px] w-full rounded-md border border-gray-300 bg-white p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="Password"
+            minlength="8"
+            required
+          />
+        </div>
+        <div class="items-cente mt-2 flex h-10 w-full">
+          <label class="flex-col">
             <input
-              type="email"
-              name="email"
-              class="inputfield"
-              id="email"
+              title="show password"
+              type="checkbox"
+              class="h-[15px] w-[15px]"
               aria-required="true"
-              placeholder=" "
-              title="Please enter a valid noroff.no or stud.noroff.no address"
+              aria-label="Checkbox"
+              id="show-password"
             />
-            <label for="email" class="form-label">Email*</label>
-            <span id="email-error" class="error-message"></span>
-            <span class="note"
-              >(Only emails ending in @stud.noroff.no allowed.)</span
-            >
-          </div>
-          <!--  pattern="^[\w\-.]+@(stud\.)?noroff\.no$" -->
-          <div class="form-item">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="inputfield"
-              placeholder=" "
-              aria-required="true"
-            />
-            <label for="password" class="form-label">Password*</label>
-            <span id="password-error" class="error-message"></span>
-          </div>
-          <div class="show-password-container">
-            <label class="checkbox-label">
-              <input
-                title="show password"
-                type="checkbox"
-                class="checkbox"
-                aria-required="true"
-                aria-label="Checkbox"
-                id="show-password"
-              />
-              Show password
-            </label>
-          </div>
-
-          <button type="submit" class="register-btn" id="register-btn">
+            Show password
+          </label>
+        </div>
+        <div class="flex h-[50px] w-full items-center justify-center">
+          <button
+            type="submit"
+            class="bg-blue h-full w-full cursor-pointer rounded-lg p-2 text-white outline-1 hover:bg-white hover:text-black"
+            id="register-btn"
+          >
             Register
           </button>
-          <div class="text-under-form">
-            <div class="text-under-content">
-              <p>Already have an account?</p>
-              <a href="/auth/login/index.html">
-                <p class="text-login-register">Log in</p>
-              </a>
-            </div>
+        </div>
+        <div class="flex h-10 w-full max-w-[600px] items-center justify-center">
+          <div class="text-tiny flex flex-col gap-1 text-center sm:flex-row">
+            <p>Don't have an account?</p>
+            <a href="/auth/login/index.html" class="text-blue">Login</a>
           </div>
-        </form>
-      </section>
-    </div>
+        </div>
+      </form>
+    </section>
     <div id="footer-container"></div>
   </body>
 </html>
