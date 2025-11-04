@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else {
         feedContainer.innerHTML = `
         <div class="landingpage-message-container">
-        <p class="text-gray-500 text-center">No posts found. Create your first post!</p>
+        <p class="text-gray-500 text-center text-[1.5rem] md:text-[1.3rem]">No posts found. Create your first post!</p>
         </div>`;
         return;
       }
