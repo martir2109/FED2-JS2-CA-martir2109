@@ -79,24 +79,6 @@ async function updateProfileHandler() {
   const avatar = avatarField.value.trim();
   const bio = bioField.value.trim();
 
-  let hasError = false;
-
-  if (avatar && !avatar.startsWith("http")) {
-    showError("avatar", "Avatar URL must start with http or https.");
-    hasError = true;
-  } else {
-    clearError("avatar");
-  }
-
-  if (bio.length > 100) {
-    showError("bio", "Bio cannot be longer than 100 characters.");
-    hasError = true;
-  } else {
-    clearError("bio");
-  }
-
-  if (hasError) return;
-
   const updateData = {};
   if (avatar) updateData.avatar = { url: avatar };
   if (bio) updateData.bio = bio;
