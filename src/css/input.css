@@ -1,19 +1,11 @@
 @import "tailwindcss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-:root {
-  --primary-color: #272727;
-  --secondary-color: #efd09e;
-  --white: #ffffff;
-  --black: #000000;
-  --grey: #6c6c6c;
-  --blue: #014b85;
-}
-
 @theme {
   --color-primary: #272727;
   --color-secondary: #efd09e;
   --color-blue: #014b85;
+  --color-grey: #6c6c6c;
   --text-tiny: clamp(0.9rem, 5vw, 1.1rem);
   --text-medium: clamp(1rem, 5vw, 1.2rem);
   --text-huge: clamp(1.8rem, 5vw, 2.125rem);
