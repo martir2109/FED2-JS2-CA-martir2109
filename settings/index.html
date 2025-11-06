@@ -23,8 +23,13 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-    <div class="loader-container">
-      <div class="loader" id="loader"></div>
+    <div
+      class="loader-container absolute z-10 flex h-screen w-full translate-y-[100px] items-center justify-center bg-white"
+    >
+      <div
+        class="loader aspect-2 animate-[l3-0 0.75s linear infinite] relative h-[60px] border-b-[3px] border-b-black"
+        id="loader"
+      ></div>
     </div>
     <section
       class="border-box mb-[100px] flex min-h-screen w-full flex-col items-center justify-center gap-4 md:mt-2.5"
