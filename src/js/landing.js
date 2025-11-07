@@ -22,10 +22,10 @@ function createLoggedOutContent() {
       </br>
       Register now and connect with people just like you.</h2>
       </div>
-      <div class="w-full h-fit flex flex-col sm:flex-row justify-center items-center gap-[20px] text-medium text-center">
-        <a href="../../auth/login/" class="w-full flex max-w-[300px] h-[60px] p-[20px] cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
+      <div class="w-full h-fit flex flex-col sm:flex-row justify-center items-center gap-5 text-medium text-center">
+        <a href="../../auth/login/" class="w-full flex max-w-[300px] h-[60px] p-5 cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
             transition transform duration-300 ease">Login</a>
-            <a href="../../auth/register/" class="w-full flex max-w-[300px] h-[60px] p-[20px] cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
+            <a href="../../auth/register/" class="w-full flex max-w-[300px] h-[60px] p-5 cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
             transition transform duration-300 ease">Register</a>
       </div>
     </div>
