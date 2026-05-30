@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-full bg-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,92 +18,108 @@
     <link rel="icon" type="image/png" href="../../public/images/favicon.png" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../src/css/style.css" />
-    <link rel="stylesheet" href="../../src/css/register-login.css" />
+    <link rel="stylesheet" href="../../src/css/tailwind-style.css" />
+    <link rel="stylesheet" href="../../src/css/input.css" />
     <link rel="stylesheet" href="../../src/css/navbar.css" />
     <link rel="stylesheet" href="../../src/css/footer.css" />
-
-    <!-- Bootstrap icon libary -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-    />
 
     <!-- Script -->
     <script type="module" src="../../src/js/auth/login.js"></script>
     <script type="module" src="../../src/js/utils.js"></script>
-    <script src="../../src/js/navbar.js"></script>
-    <script src="../../src/js/footer.js"></script>
+    <script type="module" src="../../src/js/navbar.js"></script>
+    <script type="module" src="../../src/js/footer.js"></script>
   </head>
 
-  <body>
+  <body class="h-full font-sans">
     <header>
       <div id="navbar-container"></div>
     </header>
-    <div class="loader-container">
-      <div class="loader" id="loader"></div>
+    <div
+      class="loader-container absolute z-10 flex h-screen w-full translate-y-[100px] items-center justify-center bg-white"
+    >
+      <div
+        class="loader aspect-2 relative h-[60px] border-b-[3px] border-b-black"
+        id="loader"
+      ></div>
     </div>
-    <div class="login-register-body">
-      <div class="header-container">
-        <h1>Log in</h1>
+
+    <section
+      class="border-box flex min-h-screen w-full flex-col items-center justify-center gap-4"
+    >
+      <div
+        class="mb-10 flex w-full max-w-[600px] flex-col items-center justify-center pr-4 pl-4 sm:mx-auto"
+      >
+        <h1
+          class="text-huge text-center text-2xl leading-9 font-medium tracking-tight text-black"
+        >
+          Log in
+        </h1>
       </div>
-      <section class="form-section">
-        <form id="login-form" name="login" class="login-form">
-          <div class="form-item">
+      <form
+        class="text-tiny flex h-fit w-[90%] max-w-[600px] flex-col items-start justify-center gap-6 rounded-md border border-gray-400 bg-gray-100 p-8 text-left"
+        id="login-form"
+      >
+        <div class="grid w-full gap-2">
+          <label for="email"
+            >Email
+            <span class="text-sm text-red-600 italic">
+              (Only domains allowed: noroff.no and stud.noroff.no)
+            </span></label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="h-[50px] w-full rounded-md border border-gray-300 bg-white p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="Email"
+            pattern=".+@(noroff\.no|stud\.noroff\.no)"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="grid w-full gap-2">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="h-[50px] w-full rounded-md border border-gray-300 bg-white p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="Password"
+            minlength="8"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+        <div class="items-cente mt-2 flex h-10 w-full">
+          <label class="flex-col" for="show-password">
             <input
-              id="email"
-              type="email"
-              name="email"
-              class="inputfield"
-              placeholder=" "
-              aria-required="true"
+              title="show password"
+              type="checkbox"
+              class="h-[15px] w-[15px]"
+              aria-label="Checkbox"
+              id="show-password"
             />
-            <label for="email" class="form-label">Email*</label>
-            <span id="email-error" class="error-message"></span>
-            <span class="note"
-              >(Only emails ending in @stud.noroff.no allowed.)</span
-            >
+            Show password
+          </label>
+        </div>
+        <div class="flex h-[50px] w-full items-center justify-center">
+          <button
+            type="submit"
+            class="bg-blue h-full w-full cursor-pointer rounded-lg p-2 text-white outline-1 hover:bg-white hover:text-black"
+            id="login-btn"
+          >
+            Login
+          </button>
+        </div>
+        <div class="flex h-10 w-full max-w-[600px] items-center justify-center">
+          <div class="text-tiny flex flex-col gap-1 text-center sm:flex-row">
+            <p>Don't have an account?</p>
+            <a href="/auth/register/index.html" class="text-blue">Register</a>
           </div>
-
-          <div class="form-item">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="inputfield"
-              placeholder=" "
-              aria-required="true"
-            />
-            <label for="password" class="form-label">Password*</label>
-
-            <span id="password-error" class="error-message"></span>
-          </div>
-          <div class="remember-container">
-            <label class="checkbox-label">
-              <input
-                title="show password"
-                type="checkbox"
-                class="checkbox"
-                aria-required="true"
-                aria-label="Checkbox"
-                id="show-password"
-              />
-              Show password
-            </label>
-          </div>
-
-          <button type="submit" class="login-btn" id="login-btn">Login</button>
-          <div class="text-under-form">
-            <div class="text-under-content">
-              <p>Don't have an account?</p>
-              <a href="/auth/register/index.html">
-                <p class="text-login-register">Register</p>
-              </a>
-            </div>
-          </div>
-        </form>
-      </section>
-    </div>
+        </div>
+      </form>
+    </section>
     <div id="footer-container"></div>
   </body>
 </html>

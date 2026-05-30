@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,34 +17,38 @@
     <link rel="icon" type="image/png" href="../../public/images/favicon.png" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../src/css/style.css" />
-    <link rel="stylesheet" href="../src/css/navbar.css" />
-    <link rel="stylesheet" href="../src/css/landing-page.css" />
-    <link rel="stylesheet" href="../src/css/footer.css" />
-
-    <!-- Bootstrap icon libary -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="/src/css/input.css" />
+    <link rel="stylesheet" href="/src/css/tailwind-style.css" />
+    <link rel="stylesheet" href="/src/css/navbar.css" />
+    <link rel="stylesheet" href="/src/css/footer.css" />
 
     <!-- Script -->
-    <script src="../src/js/navbar.js"></script>
-    <script type="module" src="../src/js/landing.js"></script>
-    <script src="../src/js/footer.js"></script>
-    <script type="module" src="../src/js/utils.js"></script>
+    <script type="module" src="/src/js/navbar.js"></script>
+    <script type="module" src="/src/js/landing.js"></script>
+    <script type="module" src="/src/js/footer.js"></script>
+    <script type="module" src="/src/js/utils.js"></script>
   </head>
 
   <body>
     <header>
       <div id="navbar-container"></div>
     </header>
-    <div class="loader-container">
-      <div class="loader" id="loader"></div>
+    <div
+      class="loader-container absolute z-10 flex h-screen w-full translate-y-[100px] items-center justify-center bg-white"
+    >
+      <div
+        class="loader aspect-2 animate-[l3-0 0.75s linear infinite] relative h-[60px] border-b-[3px] border-b-black"
+        id="loader"
+      ></div>
     </div>
-    <section class="landing-page-section"></section>
-    <a class="to-top" href="#top" aria-label="Back to top"
-      ><i class="bi bi-arrow-up-circle-fill"></i
+    <section class="landing-page-section min-h-screen w-full"></section>
+    <a
+      class="fixed right-5 bottom-5 cursor-pointer"
+      href="#top"
+      aria-label="Back to top"
+      ><i
+        class="bi bi-arrow-up-circle-fill hover:text-secondary text-[2rem] text-gray-500 md:text-[2.5rem]"
+      ></i
     ></a>
     <div id="footer-container"></div>
   </body>

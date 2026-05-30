@@ -3,11 +3,11 @@
  * @returns {string} The HTML for footer.
  */
 function createFooter() {
-  return `<footer class="main-footer">
-      <div class="footer-container">
-        <div class="footer-left-container">
-          <h2>Site Links</h2>
-          <div class="links-container">
+  return `<footer class="w-full min-h-[696px] bg-primary text-medium text-secondary overflow-hidden flex flex-col justify-center">
+      <div class="w-full  min-h-[321px] flex flex-col sm:place-items-start items-center sm:flex-row justify-center gap-[15%] leading-[50px]">
+        <div class="mt-[50px] w-70 bg-primary h-[350px]">
+          <h2 class="font-bold">Site Links</h2>
+          <div class="break-normal no-underline">
             <a href="../../footer-links/about/index.html">
               <p>About</p>
             </a>
@@ -25,25 +25,25 @@ function createFooter() {
             </a>
           </div>
         </div>
-        <div class="footer-right-container">
-          <h2>Contact</h2>
-          <div class="links-container">
+        <div class="mt-[50px] w-70 sm:w-60 bg-primary sm:h-[350px]">
+          <h2 class="font-bold">Contact</h2>
+          <div class="break-normal no-underline">
             <p>Email: posty@gmail.com</p>
             <p>phone: +47 12 34 56 78</p>
           </div>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div class="footer-logo-container">
+      <div class="w-full flex flex-col gap-[30px] justify-center items-center p-5">
+        <div class="w-full flex justify-center mt-[200px]">
           <img
             src="../../public/logo/Posty logo - light background.png"
             alt="Posty logo"
-            class="footer-logo"
+            class="w-[157px] h-auto"
           />
         </div>
 
-        <p>© 2025 Posty</p>
+        <p class="text-1rem">© 2025 Posty</p>
       </div>
     </footer>`;
 }

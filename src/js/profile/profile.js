@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const userProfile = await loadUserProfileData(
         accessToken,
         apiKey,
-        userName
+        userName,
       );
 
       if (avatar && userProfile.avatar) {

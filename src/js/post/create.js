@@ -55,7 +55,7 @@ createPostForm.addEventListener("submit", async function (event) {
   if (!media.url.trim() || !media.url.trim().startsWith("http")) {
     showError(
       "media",
-      "Please enter a valid image url that starts with http or https."
+      "Please enter a valid image url that starts with http or https.",
     );
     hasError = true;
   } else {
@@ -80,7 +80,7 @@ createPostForm.addEventListener("submit", async function (event) {
         method: "POST",
         headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
         body: JSON.stringify(post),
-      }
+      },
     );
     const data = await response.json();
 

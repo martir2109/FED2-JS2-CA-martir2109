@@ -179,7 +179,9 @@
   border-right: 5px solid var(--primary-color);
   white-space: nowrap;
   margin: 0 auto;
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite,
+  animation:
+    typing 3.5s steps(30, end),
+    blink-caret 0.5s step-end infinite,
     hide-caret 0s ease 1.5s forwards;
 }
 

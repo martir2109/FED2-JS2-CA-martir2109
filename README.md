@@ -21,6 +21,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 - JavaScript Vanilla (ES6 Modules)
 - Fetch API
 - Netlify (deployment)
+- Vite (dev server)
 
 ## 🗂️ Project structure
 
@@ -74,9 +75,25 @@ In addition, allowing users to follow/ unfollow users, commenting on posts and l
 4. Basic UI must be in place at the very least.
 5. You must create a README.md with details how to run your project.
 
+## Install dependencies
+
+```bash
+npm install
+```
+
 ## How to run the project
 
-1. Open project in the terminal
+**Option 1 - Using Vite**
+
+Run the development server with Vite:
+
+```bash
+npm run dev
+```
+
+**Option 2 - Using Live Server**
+
+1. Open the terminal in the project folder.
 
 2. Install live-server (if not already installed):
 

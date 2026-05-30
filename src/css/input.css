@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@theme {
+  --color-primary: #272727;
+  --color-secondary: #efd09e;
+  --color-blue: #014b85;
+  --color-grey: #6c6c6c;
+  --text-tiny: clamp(0.9rem, 5vw, 1.1rem);
+  --text-medium: clamp(1rem, 5vw, 1.2rem);
+  --text-huge: clamp(1.8rem, 5vw, 2.125rem);
+  --text-title: clamp(3rem, 5vw, 4.5rem);
+  --text-landing: clamp(1.6rem, 5vw, 1.875rem);
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 750px;
+  --breakpoint-md: 1000px;
+  --breakpoint-lg: 1250px;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+
+/* Loader css: https://css-loaders.com/bouncing/ */
+.loaderHidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: auto 42.5% 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: l3-1 0.75s cubic-bezier(0, 900, 1, 900) infinite;
+}
+@keyframes l3-0 {
+  to {
+    background-position: -125% 100%;
+  }
+}
+@keyframes l3-1 {
+  0%,
+  2% {
+    bottom: 0%;
+  }
+  98%,
+  to {
+    bottom: 0.1%;
+  }
+}

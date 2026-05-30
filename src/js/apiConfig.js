@@ -27,7 +27,7 @@ export const API_ENDPOINTS = {
  */
 export const API_Headers_accesstoken_content_apikey = (
   accessToken,
-  apiKey
+  apiKey,
 ) => ({
   Authorization: `Bearer ${accessToken}`,
   "Content-Type": "application/json",

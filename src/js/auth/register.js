@@ -1,4 +1,4 @@
-import { showError, clearError, togglePassword } from "../utils.js";
+import { togglePassword } from "../utils.js";
 
 import {
   API_BASE_URL,
@@ -32,43 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    let hasError = false;
-
-    if (!name) {
-      showError("name", "Name cannot be empty.");
-      hasError = true;
-    } else if (!/^[\w]+$/.test(name)) {
-      showError(
-        "name",
-        "The name value must not contain punctuation symbols apart from underscore (_)."
-      );
-      hasError = true;
-    } else {
-      clearError("name");
-    }
-
-    if (!email) {
-      showError("email", "Email cannot be empty.");
-      hasError = true;
-    } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(email)) {
-      showError("email", "Invalid Noroff email format.");
-      hasError = true;
-    } else {
-      clearError("email");
-    }
-
-    if (!password) {
-      showError("password", "Password cannot be empty.");
-      hasError = true;
-    } else if (password.length < 8) {
-      showError("password", "Password must be at least 8 characters long.");
-      hasError = true;
-    } else {
-      clearError("password");
-    }
-
-    if (hasError) return;
-
     try {
       const response = await fetch(
         `${API_BASE_URL}${API_ENDPOINTS.AUTH.REGISTER}`,
@@ -81,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             password,
             venueManager: false,
           }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -102,37 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Registration error:", error);
       alert("Something went wrong while registering.");
     }
-  });
-
-  const inputs = document.querySelectorAll(".inputfield");
-
-  /**
-   * Sets up input fields so that:
-   * - Errors are cleared when the user types or focuses.
-   * - Auto-completes stud.noroff.no domain on '@'
-   * @param {HTMLInputElement} input - An input field element.
-   */
-  inputs.forEach((input) => {
-    input.addEventListener("focus", () => {
-      clearError(input.id);
-    });
-
-    input.addEventListener("input", () => {
-      if (input.value.trim()) {
-        clearError(input.id);
-      }
-    });
-
-    const emailInput = document.getElementById("email");
-
-    emailInput.addEventListener("input", () => {
-      if (
-        emailInput.value.endsWith("@") &&
-        !emailInput.value.includes("noroff.no")
-      ) {
-        emailInput.value += "stud.noroff.no";
-      }
-    });
   });
 });
 

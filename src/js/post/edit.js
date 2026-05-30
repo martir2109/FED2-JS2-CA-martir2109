@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         method: "GET",
         headers: API_Headers_accesstoken_apikey(accessToken, apiKey),
-      }
+      },
     );
 
     const data = await response.json();
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!media.url.trim() || !media.url.trim().startsWith("http")) {
       showError(
         "media",
-        "Please enter a valid image url that starts with http or https."
+        "Please enter a valid image url that starts with http or https.",
       );
       hasError = true;
     } else {
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           method: "PUT",
           headers: API_Headers_accesstoken_content_apikey(accessToken, apiKey),
           body: JSON.stringify(updatePost),
-        }
+        },
       );
       const data = await response.json();
 
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             Authorization: `Bearer ${accessToken}`,
             "X-Noroff-API-Key": apiKey,
           },
-        }
+        },
       );
       if (!response.ok) {
         const data = await response.json();
