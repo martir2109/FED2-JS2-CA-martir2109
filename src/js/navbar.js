@@ -32,10 +32,10 @@ function createNavbar() {
             <a href="/search/index.html"><i class="bi bi-search" title="Search"></i>
             <span class="nav-text">Search</span>
             </a>
-            <a href="../../profile/index.html"><i class="bi bi-person" title="Profile"></i>
+            <a href="/profile/index.html"><i class="bi bi-person" title="Profile"></i>
             <span class="nav-text">Profile</span>
             </a>
-            <a href="../../settings/index.html"><i class="bi bi-gear" title="Settings"></i>
+            <a href="/settings/index.html"><i class="bi bi-gear" title="Settings"></i>
             <span class="nav-text">Settings</span>
             </a>
             <a href="javascript:void(0);" onclick="logout()"><i class="bi bi-box-arrow-right" title="Log out"></i>
@@ -66,7 +66,7 @@ function createNavbar() {
             <a href="/index.html"><i class="bi bi-house-door" title="Home"></i>
             <span class="nav-text">Home</span>
             </a>
-            <a href="../../auth/login/index.html"><i class="bi bi-person" title="Profile"></i> 
+            <a href="/auth/login/index.html"><i class="bi bi-person" title="Profile"></i> 
             <span class="nav-text">Log in or Register</span>
             </a>
           </div>

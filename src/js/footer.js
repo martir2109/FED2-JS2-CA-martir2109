@@ -11,16 +11,16 @@ function createFooter() {
             <a href="../../footer-links/about/index.html">
               <p>About</p>
             </a>
-            <a href="../../footer-links/contact/index.html">
+            <a href="/footer-links/contact/index.html">
               <p>Contact/ Support</p>
             </a>
-            <a href="../../footer-links/privacy-policy/index.html">
+            <a href="/footer-links/privacy-policy/index.html">
               <p>Privacy Policy</p>
             </a>
-            <a href="../../footer-links/terms-of-service/index.html">
+            <a href="/footer-links/terms-of-service/index.html">
               <p>Terms of Service</p>
             </a>
-            <a href="../../footer-links/faq/index.html">
+            <a href="/footer-links/faq/index.html">
               <p>Frequently Asked Questions</p>
             </a>
           </div>

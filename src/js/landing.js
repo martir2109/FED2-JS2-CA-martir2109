@@ -26,13 +26,13 @@ function createLoggedOutContent() {
     
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="../../auth/register/index.html"
+            href="/auth/register/index.html"
             class="px-8 h-14 flex items-center justify-center rounded-full bg-secondary text-primary font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             Get Started
           </a>
           <a
-            href="../../auth/login/index.html"
+            href="/auth/login/index.html"
             class="px-8 h-14 flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             Login
