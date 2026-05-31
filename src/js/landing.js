@@ -13,20 +13,31 @@ function isUserLoggedIn() {
 
 function createLoggedOutContent() {
   return `
-     <div class="w-full min-h-screen text-center p-10 flex flex-col gap-[30px] bg-secondary justify-center items-center">
-     <div class="text-primary text-title">
-      <h1 class="text-title">Welcome to Posty!</h1>
-      </div>
-      <div class="w-[90%] min-h-[100px] flex flex-col justify-center mt-[30px]">
-      <h2 class="text-landing ">Got something to share? Post it! 
-      </br>
-      Register now and connect with people just like you.</h2>
-      </div>
-      <div class="w-full h-fit flex flex-col sm:flex-row justify-center items-center gap-5 text-medium text-center">
-        <a href="../../auth/login/" class="w-full flex max-w-[300px] h-[60px] p-5 cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
-            transition transform duration-300 ease">Login</a>
-            <a href="../../auth/register/" class="w-full flex max-w-[300px] h-[60px] p-5 cursor-pointer bg-primary text-white border border-black rounded-md justify-center items-center hover:text-primary hover:bg-white hover:-translate-y-2
-            transition transform duration-300 ease">Register</a>
+     <div class="min-h-screen bg-gray-100 flex items-center justify-center px-6">
+      <div class="w-full max-w-3xl bg-white rounded-3xl shadow-xl p-10 text-center">
+        <h1 class="text-5xl font-bold text-primary mb-6">
+          Welcome to Posty!
+        </h1>
+    
+        <p class="text-lg text-gray-600 max-w-xl mx-auto mb-10">
+         Got something to share? Post it!
+         </br> Register now and connect with people just like you.
+        </p>
+    
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="../../auth/register/"
+            class="px-8 h-14 flex items-center justify-center rounded-full bg-secondary text-primary font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            Get Started
+          </a>
+          <a
+            href="../../auth/login/"
+            class="px-8 h-14 flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            Login
+          </a>
+        </div>
       </div>
     </div>
     `;
@@ -135,14 +146,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       .map(
         (post) => `
         <a href="../../post/view/index.html?id=${post.id}">
-    <div class="bg-white w-[280px] min-h-[400px] rounded-xl border border-gray-300 p-4 flex flex-col gap-4 hover:shadow-xl/30 hover:-translate-y-5
-            transition transform duration-300 ease">
-    <h4 class="text-medium font-bold">${post.author?.name || "No username"}</h4>
-    ${
-      post.media?.url
-        ? `<img src="${post.media.url}" alt="Post media" class="w-full h-full aspect-1 object-cover" loading="lazy">`
-        : `<img src="../../public/images/no image - default image.jpg" class="w-full h-full aspect-1 object-cover" loading="lazy">`
-    }
+    <div class="bg-white w-[280px] min-h-[400px] rounded-xl border border-gray-300 p-4 flex flex-col gap-4 hover:shadow-xl/30 hover:-translate-y-5 transition transform duration-300 ease">
+        <div class="flex gap-2 items-center"> 
+        <div class="size-10 bg-primary p-2 rounded-md shrink-0 flex items-center justify-center text-secondary text-sm font-bold" style="border-radius: 50%;">
+        ${post.author?.name?.slice(0, 2).toUpperCase() || "?"}
+          </div>
+       <h4 class="text-medium font-bold">${post.author?.name || "No username"}</h4>
+      </div>
+     <div class="w-full h-[200px] rounded-lg overflow-hidden shrink-0">
+  ${
+    post.media?.url
+      ? `<img src="${post.media.url}" alt="Post media" class="w-full h-full object-contain block" loading="lazy">`
+      : `<img src="../../public/images/no image - default image.jpg" class="w-full h-full object-cover block" loading="lazy">`
+  }
+</div>
     <p class="wrap-break-word w-full h-[50px] text-tiny">${
       post.body ? post.body.substring(0, 30) + "..." : ""
     }</p>
