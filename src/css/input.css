@@ -18,6 +18,15 @@
   --font-sans: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --primary-color: #272727;
+  --secondary-color: #efd09e;
+  --white: #ffffff;
+  --black: #000000;
+  --grey: #6c6c6c;
+  --blue: #014b85;
+}
+
 input:invalid:not(:placeholder-shown) {
   border-color: red;
 }
