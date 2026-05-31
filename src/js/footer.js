@@ -37,7 +37,7 @@ function createFooter() {
       <div class="w-full flex flex-col gap-[30px] justify-center items-center p-5">
         <div class="w-full flex justify-center mt-[200px]">
           <img
-            src="../../public/logo/Posty logo - light background.png"
+            src="/logo/Posty logo - light background.png"
             alt="Posty logo"
             class="w-[157px] h-auto"
           />

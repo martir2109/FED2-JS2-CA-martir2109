@@ -12,7 +12,7 @@ function createNavbar() {
         <nav class="topnav">
         <a href="/index.html">
           <div class="nav-logo">
-            <img src="../../public/logo/Posty logo - dark backgroung.png" alt="Posty logo">
+            <img src="/logo/Posty logo - dark backgroung.png" alt="Posty logo">
           </div>
           </a>
           
@@ -50,7 +50,7 @@ function createNavbar() {
         <nav class="topnav">
         <a href="/index.html">
           <div class="nav-logo">
-            <img src="../../public/logo/Posty logo - dark backgroung.png" alt="Posty logo">
+            <img src="/logo/Posty logo - dark backgroung.png" alt="Posty logo">
           </div>
           </a>
           
