@@ -8,7 +8,7 @@ function createFooter() {
         <div class="mt-[50px] w-70 bg-primary h-[350px]">
           <h2 class="font-bold">Site Links</h2>
           <div class="break-normal no-underline">
-            <a href="../../footer-links/about/index.html">
+            <a href="/footer-links/about/index.html">
               <p>About</p>
             </a>
             <a href="/footer-links/contact/index.html">

@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.innerHTML = posts
       .map(
         (post) => `
-        <a href="../../post/view/index.html?id=${post.id}">
+        <a href="/post/view/index.html?id=${post.id}">
     <div class="bg-white w-[280px] min-h-[400px] rounded-xl border border-gray-300 p-4 flex flex-col gap-4 hover:shadow-xl/30 hover:-translate-y-5 transition transform duration-300 ease">
         <div class="flex gap-2 items-center"> 
         <div class="size-10 bg-primary p-2 rounded-md shrink-0 flex items-center justify-center text-secondary text-sm font-bold" style="border-radius: 50%;">
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   ${
     post.media?.url
       ? `<img src="${post.media.url}" alt="Post media" class="w-full h-full object-contain block" loading="lazy">`
-      : `<img src="../../public/images/no image - default image.jpg" class="w-full h-full object-cover block" loading="lazy">`
+      : `<img src="/public/images/no image - default image.jpg" class="w-full h-full object-cover block" loading="lazy">`
   }
 </div>
     <p class="wrap-break-word w-full h-[50px] text-tiny">${
