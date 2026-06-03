@@ -1,5 +1,7 @@
 # FED2 JavaScript 2 Course Assignment
 
+![Netlify Status](https://api.netlify.com/api/v1/badges/b9131411-3cf8-4224-bec5-a4f6d942f430/deploy-status)
+
 Hello there! 👋🏼
 
 My name is Martine Reppesgård Karlsen.
@@ -12,7 +14,7 @@ This is my JavaScript 2 course assignment, submitted during my secound year of s
 
 ## 📸 Website Preview
 
-![Preview of Posty website](./public/images/website-preview.png)
+![Preview of Posty website](./public/images/preview.png)
 
 ## 🛠️ Technologies used
 
@@ -75,9 +77,13 @@ In addition, allowing users to follow/ unfollow users, commenting on posts and l
 4. Basic UI must be in place at the very least.
 5. You must create a README.md with details how to run your project.
 
-## Install dependencies
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
+git clone https://github.com/martir2109/FED2-JS2-CA-martir2109.git
+cd FED2-JS2-CA-martir2109
 npm install
 ```
 
